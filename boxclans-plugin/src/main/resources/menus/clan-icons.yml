@@ -1,0 +1,74 @@
+# BoxClans — menus/clan-icons.yml: chọn icon bang hội (Cài đặt > Icon bang hội, /clan icons)
+# Layout: T = icon đang dùng, X = icon có sẵn và icon đã mua, P / N = trang, B = quay lại, S = mua thêm icon,
+# R = gỡ icon, . = ô trống
+# Minh Chủ và Phó Bang trang bị / gỡ; thành viên khác chỉ xem.
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 4
+
+title: 'Icon bang hội'
+rows: 5
+
+layout:
+  - '.........'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - 'B..PTN..R'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  T:
+    material: SHIELD
+    name: '&#FFAA00Icon bang hội'
+    # %current% = icon đang dùng (tên + icon), hoặc no-icon
+    lore:
+      - '&#FFFFFFIcon khiên động hiện trước tên'
+      - '&#FFFFFFbang ở tab, scoreboard, nametag, chat.'
+      - ''
+      - '&#AAAAAAĐang dùng: %current%'
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  S:
+    material: EMERALD
+    name: '&#55FF55Mua thêm icon'
+    lore:
+      - '&#FFFFFFMở tab Icon của'
+      - '&#FFFFFFCửa hàng bang hội'
+  R:
+    material: BRUSH
+    name: '&#FF4127Gỡ icon'
+    lore:
+      - '&#FFFFFFGỡ icon khỏi tên bang hội'
+    lore-member:
+      - '&#FFFFFFGỡ icon khỏi tên bang hội'
+      - ''
+      - '&#FF5555&l(!)&r&#FF5555 Chỉ Minh Chủ và Phó Bang'
+      - '&#FF5555&l(!)&r&#FF5555 đổi được icon!'
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+
+# Mỗi icon. %display% %icon_static% %clan% %state%
+icon-item:
+  name: '%display%'
+  lore:
+    - '&#AAAAAAXem trước: %icon_static%%clan%'
+    - ''
+    - '%state%'
+  glint-when-selected: true
+
+state-selected: '&#55FF55Đang dùng'
+state-use: '&#FFFFFFBấm để dùng'
+state-member: '&#AAAAAAChỉ Minh Chủ và Phó Bang đổi được'
+no-icon: '&#AAAAAAChưa có'

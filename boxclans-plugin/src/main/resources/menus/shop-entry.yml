@@ -1,0 +1,94 @@
+# BoxClans — menus/shop-entry.yml: sửa một vật phẩm của cửa hàng (quyền boxclans.admin.shop)
+# Layout: I = vật phẩm, P = giá, L = giới hạn tuần, C = danh mục, M = kiểu (vật phẩm / chạy lệnh), O = lệnh,
+# H = ẩn / hiện, U = thay item, D = xoá, < / > = dời trước / sau, B = quay lại
+# Placeholder: %id% %price% %limit% %category% %mode% %hidden% %commands% (danh sách)
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 3
+
+title: 'Sửa mục #%id%'
+rows: 4
+
+layout:
+  - '....I....'
+  - '.P.L.C.M.'
+  - '.O.H.U.D.'
+  - 'B..<.>...'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  P:
+    material: GOLD_INGOT
+    name: '&#C77DFFGiá: %price% Minh Huy'
+    lore:
+      - '&#FFFFFFBấm để nhập giá mới'
+  L:
+    material: CLOCK
+    name: '&#FFD600Giới hạn tuần: %limit%'
+    lore:
+      - '&#FFFFFFSố lần mỗi bang được mua'
+      - '&#FFFFFFmỗi tuần. Bấm để nhập.'
+  C:
+    material: CHEST
+    name: '&#FFFFFFDanh mục: %category%'
+    lore:
+      - '&#AAAAAAChuột trái: danh mục sau'
+      - '&#AAAAAAChuột phải: danh mục trước'
+  M:
+    material: COMPARATOR
+    name: '&#FFFFFFKiểu: %mode%'
+    lore:
+      - '&#AAAAAAVật phẩm: rút ra nhận item này'
+      - '&#AAAAAAChạy lệnh: rút ra chạy lệnh,'
+      - '&#AAAAAAitem chỉ để trưng bày'
+      - '&#FFFFFFBấm để đổi'
+  O:
+    material: COMMAND_BLOCK
+    name: '&#FFD600Lệnh khi rút'
+    lore:
+      - '%commands%'
+      - ''
+      - '&#AAAAAAChuột trái: thêm lệnh'
+      - '&#AAAAAAChuột phải: xoá lệnh cuối'
+  H:
+    material: ENDER_EYE
+    name: '&#FFFFFFẨn khỏi người chơi: %hidden%'
+    lore:
+      - '&#FFFFFFBấm để đổi'
+  U:
+    material: HOPPER
+    name: '&#55FFFFThay item'
+    lore:
+      - '&#FFFFFFCầm item mới trên con trỏ'
+      - '&#FFFFFF(hoặc trên tay) rồi bấm.'
+      - '&#AAAAAAGiá, giới hạn, lệnh giữ nguyên.'
+  D:
+    material: LAVA_BUCKET
+    name: '&#FF4127Xoá khỏi cửa hàng'
+    lore:
+      - '&#AAAAAAĐồ đã mua trong kho'
+      - '&#AAAAAAvẫn giữ nguyên.'
+  '<':
+    material: ARROW
+    name: '&#FFFFFFDời lên trước'
+    lore: []
+  '>':
+    material: ARROW
+    name: '&#FFFFFFDời ra sau'
+    lore: []
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+
+# Một dòng của %commands%. %index% %command%
+command-line: '&#AAAAAA%index%. &#FFFFFF/%command%'
+no-commands: '&#AAAAAAChưa có lệnh'
+no-limit: 'Không giới hạn'
+mode-item: '&#FFFFFFVật phẩm'
+mode-command: '&#FFD600Chạy lệnh'
+hidden-yes: '&#FF5555Có'
+hidden-no: '&#55FF55Không'

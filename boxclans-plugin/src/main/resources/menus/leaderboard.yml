@@ -1,0 +1,55 @@
+# BoxClans — menus/leaderboard.yml: bảng xếp hạng
+# Layout: X = bang hội theo hạng, [ / ] = trang, B = quay lại, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 3
+
+title: 'Bảng xếp hạng bang hội'
+rows: 6
+
+layout:
+  - '.........'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.........'
+  - '...[B]...'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Ô X còn trống
+empty-slot:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore:
+      - '&#FFFFFFQuay lại menu chính'
+  '[':
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  ']':
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+
+# Icon = cờ của bang hội. Mã bang hội không hiện ở đây.
+clan-item:
+  name: '&#FFD600#%rank% &r%clan%'
+  lore:
+    - '&#AAAAAAMinh Chủ: <gradient:#FFD600:#FF8C00>%owner%</gradient>'
+    - '&#AAAAAAThành viên: &#55FF55%members%/%max_members%'
+    - '&#AAAAAADanh Vọng: &#FFC94D%score%'
+    - ''
+    - '&#AAAAAAMô tả:'
+    - '&#FFFFFF%description%'
+    - ''
+    - '&#FFFFFFBấm để xem bang hội này'
+empty-description: 'Chưa có mô tả.'
+unlimited: 'Không giới hạn'

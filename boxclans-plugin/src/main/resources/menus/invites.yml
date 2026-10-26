@@ -1,0 +1,62 @@
+# BoxClans — menus/invites.yml: lời mời bang hội gửi tới bạn
+# Layout: X = lời mời, P / N = trang, B = quay lại, S = sắp xếp, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 2
+
+title: 'Lời mời của bạn'
+rows: 6
+
+layout:
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - '...PBN.S.'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Icon = cờ của bang hội. %clan% %player% (người mời) %expiry% %members% %max_members% %score%
+invite-item:
+  name: '%clan%'
+  lore:
+    - '&#AAAAAANgười mời: &#FFFFFF%player%'
+    - '&#AAAAAAHết hạn sau: &#FFFFFF%expiry%'
+    - '&#AAAAAAThành viên: &#55FF55%members%/%max_members%'
+    - '&#AAAAAADanh Vọng: &#FFC94D%score%'
+    - ''
+    - '&#55FF55Chuột trái để chấp nhận'
+    - '&#FF5555Chuột phải để từ chối'
+unlimited: 'Không giới hạn'
+
+items:
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  S:
+    material: HOPPER
+    name: '&#55FFFFSắp xếp'
+    lore:
+      - '%sort_score%'
+      - '%sort_size%'
+      - '%sort_name%'
+
+sort-active-prefix: '&#55FFFF• '
+sort-inactive-prefix: '&#FFFFFF• '
+
+sort-labels:
+  score: 'Danh Vọng'
+  size: 'Số thành viên'
+  name: 'Tên'

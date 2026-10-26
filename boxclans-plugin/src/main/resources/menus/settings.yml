@@ -1,0 +1,171 @@
+# BoxClans — menus/settings.yml: cài đặt bang hội
+# Layout: R = đổi tên, F = cờ, V = PvP trong bang, C = chat bang, S = âm báo chat, M = âm báo thành viên mới,
+# I = icon bang hội, O = các vai trò, Z = Danh Vọng, B = quay lại, L = rời bang, D = giải tán, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 4
+
+title: 'Cài đặt bang hội'
+rows: 3
+
+layout:
+  - 'RFI..VCSM'
+  - '.........'
+  - 'OZ..B..LD'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  R:
+    material: NAME_TAG
+    name: '&#FFAA00Đổi tên bang hội'
+    lore:
+      - '&#FFFFFFĐổi tên hoặc màu tên bang hội'
+      - '&#AAAAAAChỉ đổi màu: không tính thời gian chờ'
+      - ''
+      - '&#AAAAAATên hiện tại: %clan%'
+      - '&#AAAAAAMã bang hội: &b%key%'
+  F:
+    # material được thay bằng cờ của bang hội
+    material: ORANGE_BANNER
+    name: '&#00FFFFCờ bang hội'
+    lore:
+      - '&#FFFFFFThiết kế cờ của bang hội'
+  V:
+    material: TURTLE_HELMET
+    name: '&#00FF5DPvP trong bang'
+    lore:
+      - '&#FFFFFFCho phép thành viên đánh'
+      - '&#FFFFFFvà hạ gục lẫn nhau.'
+      - '&#AAAAAA(Hạ gục nhau không tính Danh Vọng)'
+      - ''
+      - '%pvp_enabled%'
+      - '%pvp_disabled%'
+  C:
+    material: BELL
+    name: '&#FFFF55Chat bang hội'
+    lore:
+      - '&#FFFFFFMọi tin bạn gõ sẽ vào chat bang hội.'
+      - '&#FFFFFFDùng &#FFFF55/cc <tin> &#FFFFFFhoặc &#FFFF55!<tin>'
+      - '&#FFFFFFđể gửi nhanh.'
+      - ''
+      - '%chat_enabled%'
+      - '%chat_disabled%'
+  S:
+    material: EXPERIENCE_BOTTLE
+    name: '&#00FF00Âm báo chat'
+    lore:
+      - '&#FFFFFFBật / tắt âm thanh khi'
+      - '&#FFFFFFnhận tin chat bang hội.'
+      - ''
+      - '%chat_sound_enabled%'
+      - '%chat_sound_disabled%'
+    enchantment-glint-when-enabled: true
+  M:
+    material: SPYGLASS
+    name: '&#FFFF00Âm báo thành viên mới'
+    lore:
+      - '&#FFFFFFBật / tắt âm thanh khi'
+      - '&#FFFFFFcó thành viên mới vào bang.'
+      - ''
+      - '%member_sound_enabled%'
+      - '%member_sound_disabled%'
+    enchantment-glint-when-enabled: true
+  I:
+    material: SHIELD
+    name: '&#FFAA00Icon bang hội'
+    lore:
+      - '&#FFFFFFChọn icon khiên hiện trước'
+      - '&#FFFFFFtên bang hội.'
+      - '&#AAAAAAMua thêm icon trong'
+      - '&#AAAAAACửa hàng bang hội.'
+  O:
+    material: WRITABLE_BOOK
+    name: '&#BBBBBBCác vai trò'
+    # %roles% = mỗi vai trò trong roles.yml: role-lines bên dưới
+    lore:
+      - '%roles%'
+  Z:
+    material: BREWING_STAND
+    name: '&#FFC94DDanh Vọng'
+    # %sources% = các nguồn Danh Vọng trong points.yml, %kill_event% = sự kiện kill đang chạy, %warnings% = cảnh báo
+    lore:
+      - '&#FFFFFFDanh Vọng dùng để xếp hạng'
+      - '&#FFFFFFcác bang hội.'
+      - ''
+      - '&#FFC94DCách kiếm Danh Vọng'
+      - '%sources%'
+      - '%kill_event%'
+      - ''
+      - '%warnings%'
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+  L:
+    material: REDSTONE
+    name: '&#FF3400Rời bang hội'
+    lore:
+      - '&#FFFFFFRời bang hội'
+      - ''
+      - '&#FF5555&l(!)&r&#FF5555 Minh Chủ không thể rời bang!'
+      - '&#FF5555&l(!)&r&#FF5555 Hãy chuyển Minh Chủ hoặc giải tán.'
+    lore-member:
+      - '&#FFFFFFBấm để rời bang hội'
+  D:
+    material: TNT_MINECART
+    name: '&#FF4127Giải tán bang hội'
+    lore:
+      - '&#FFFFFFGiải tán toàn bộ bang hội'
+    lore-member:
+      - '&#FFFFFFGiải tán toàn bộ bang hội'
+      - ''
+      - '&#FF5555&l(!)&r&#FF5555 Chỉ Minh Chủ mới'
+      - '&#FF5555&l(!)&r&#FF5555 giải tán được bang hội!'
+
+# Trạng thái bật / tắt: dòng đang chọn có màu, dòng còn lại màu xám
+pvp-on-enabled: '&#00FF00• Bật'
+pvp-on-disabled: '&#AAAAAA• Bật'
+pvp-off-enabled: '&#AAAAAA• Tắt'
+pvp-off-disabled: '&#FF4127• Tắt'
+
+chat-on-enabled: '&#00FF00• Bật'
+chat-on-disabled: '&#AAAAAA• Bật'
+chat-off-enabled: '&#AAAAAA• Tắt'
+chat-off-disabled: '&#FF4127• Tắt'
+
+sound-on-enabled: '&#00FF00• Bật'
+sound-on-disabled: '&#AAAAAA• Bật'
+sound-off-enabled: '&#AAAAAA• Tắt'
+sound-off-disabled: '&#FF4127• Tắt'
+
+# Lore của O: mỗi vai trò (từ roles.yml) gồm role-lines, %role% (tên vai trò theo gui-color, kể cả gradient)
+# %color% %display% %key%, rồi các dòng description
+role-lines:
+  - ''
+  - '%role% &#AAAAAA(%key%)'
+
+# Lore của Z, sinh từ points.yml. %display% %points% %cap% %today% %every%
+# Nguồn có 'lore:' riêng trong points.yml thì dùng dòng đó (hỗ trợ %points% và %points_<id>%), 'lore: ''''' = ẩn.
+score:
+  source-positive: '&#AAAAAA- &#FFFFFF%display% &#00FF00+%points% Danh Vọng'
+  source-negative: '&#AAAAAA- &#FFFFFF%display% &#FF4127%points% Danh Vọng'
+  source-zero: '&#AAAAAA- &#FFFFFF%display% &#00FF00tuỳ hoạt động'
+  # Thêm dưới nguồn có clan-daily-cap
+  cap-lines:
+    - '   &#AAAAAATối đa &#FFFFFF%cap% &#AAAAAAmỗi ngày cho cả bang'
+    - '   &#AAAAAA(reset 0h) Hôm nay: &#FFC94D%today%&#AAAAAA/&#FFFFFF%cap%'
+  # Thêm dưới nguồn có every > 1
+  every-line: '   &#AAAAAAMỗi &#FFFFFF%every% &#AAAAAAlần'
+  # Khi đang có sự kiện kill. %event% %kill% %death%
+  kill-event:
+    - ''
+    - '&#FFC94DĐang diễn ra: %event%'
+    - '&#FFC94DHạ gục +%kill% / bị hạ gục %death%'
+    - '&#FFC94D(không giới hạn)'
+  # Cảnh báo cuối lore. %max% %window%
+  warnings:
+    - '&#FF5555&l(!)&r&#FF5555 Giết cùng một người quá %max% lần'
+    - '&#FF5555&l(!)&r&#FF5555 trong %window% sẽ không được tính!'

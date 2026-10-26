@@ -1,0 +1,85 @@
+# BoxClans — menus/clan-list.yml: danh sách TOÀN BỘ bang hội
+# Layout: X = bang hội, L = bảng xếp hạng, B = lời mời của bạn, A = tạo bang hội / bang hội của bạn,
+# P / N = trang, S = sắp xếp, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 3
+
+title: 'Danh sách bang hội'
+rows: 6
+
+layout:
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'LB.PAN.S.'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Icon = cờ của bang hội. %clan% %description% %members% %max_members% %score% %rank% %leader%
+# (Mã bang hội không hiện ở đây, chỉ hiện trong nội bộ bang hội)
+clan-item:
+  name: '%clan%'
+  lore:
+    - '&#AAAAAAMinh Chủ: <gradient:#FFD600:#FF8C00>%leader%</gradient>'
+    - '&#AAAAAAThành viên: &#55FF55%members%/%max_members%'
+    - '&#AAAAAADanh Vọng: &#FFC94D%score% &#AAAAAA(hạng &#FFD600#%rank%&#AAAAAA)'
+    - ''
+    - '&#AAAAAAMô tả:'
+    - '&#FFFFFF%description%'
+    - ''
+    - '&#FFFFFFBấm để xem bang hội'
+empty-description: 'Chưa có mô tả.'
+unlimited: 'Không giới hạn'
+
+items:
+  L:
+    material: GOLD_BLOCK
+    name: '&#FFC700Bảng xếp hạng'
+    lore:
+      - '&#FFFFFFXem các bang hội mạnh nhất'
+  B:
+    material: BELL
+    name: '&#FFFF00Lời mời của bạn'
+    lore:
+      - '&#FFFFFFLời mời vào bang hội (%count%)'
+  A:
+    material: NAME_TAG
+    name: '&#55FF55Tạo bang hội'
+    lore:
+      - '&#FFFFFFBấm để tạo bang hội'
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  S:
+    material: HOPPER
+    name: '&#55FFFFSắp xếp'
+    lore:
+      - '%sort_score%'
+      - '%sort_size%'
+      - '%sort_name%'
+
+# Thay cho A khi người xem đã có bang hội
+your-clan-button:
+  material: END_CRYSTAL
+  name: '&#FF55FFBang hội của bạn'
+  lore:
+    - '&#FFFFFFQuản lý bang hội của bạn'
+  enchantment-glint: true
+
+sort-active-prefix: '&#55FFFF• '
+sort-inactive-prefix: '&#FFFFFF• '
+
+sort-labels:
+  score: 'Danh Vọng'
+  size: 'Số thành viên'
+  name: 'Tên'

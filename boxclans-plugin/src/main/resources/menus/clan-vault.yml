@@ -1,0 +1,109 @@
+# BoxClans — menus/clan-vault.yml: Kho bang hội (/clan kho, nút K của menu chính)
+# Layout: T = tab (Tất cả rồi các danh mục vật phẩm của shop.yml), U = ô đánh dấu dưới tab (lime = đang xem),
+# M = thông tin, X = vật phẩm, P / N = trang, B = quay lại, . = ô trống
+# Cả bang xem được; Minh Chủ và Phó Bang rút (mỗi lần 1 cái) hoặc dùng chai boost bang hội.
+# Thành viên khác chỉ xem: bấm không có tác dụng, không hiện dòng hướng dẫn bấm.
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 5
+
+title: 'Kho bang hội | %clan%'
+rows: 6
+
+layout:
+  - '.TTTTTTT.'
+  - '.UUUUUUU.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - 'B..PMN...'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+tab-all:
+  name: '&#FFFFFFTất cả'
+  material: NETHER_STAR
+tab-item:
+  name: '%tab%'
+  lore:
+    - '%state%'
+tab-selected: '&#55FF55Đang xem'
+tab-other: '&#AAAAAABấm để xem'
+
+# 1.4.3: dòng U dưới các tab. Ô dưới tab đang xem dùng tab-marker-selected (xanh lime), các ô khác dùng tab-marker.
+# Bấm vào ô này cũng mở tab phía trên nó.
+tab-marker:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+tab-marker-selected:
+  material: LIME_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  M:
+    material: BARREL
+    name: '&#C77DFFKho bang hội'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%count%'
+      - '&#AAAAAAMinh Huy: &#C77DFF%balance%'
+      - ''
+      - '&#AAAAAAChỉ chứa đồ mua trong cửa hàng'
+      - '&#AAAAAAhoặc được server tặng.'
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+
+# Kho trống (ô đầu tiên)
+empty:
+  material: LIGHT_GRAY_STAINED_GLASS_PANE
+  name: '&#AAAAAAKho đang trống'
+  lore:
+    - '&#AAAAAAMua vật phẩm trong'
+    - '&#AAAAAACửa hàng bang hội.'
+
+# Vật phẩm trong kho: giữ tên và lore của item, thêm các dòng dưới. %amount% %id%
+vault-item:
+  lore:
+    - ''
+    - '&7• Số lượng: &bx%amount%'
+  lore-item:
+    - ''
+    - '&8[&#7CFC9ABấm để rút 1 cái&8]'
+    - '&7(túi đồ cần còn chỗ)'
+  lore-command:
+    - ''
+    - '&8[&#7CFC9ABấm để nhận 1 cái&8]'
+  # Chai boost bang hội: chuột trái để dùng cho cả bang
+  lore-bottle:
+    - ''
+    - '&8[&#7CFC9AChuột trái để kích hoạt&8]'
+  # Thêm cho thành viên thường (chỉ xem). Để trống = không thêm dòng nào
+  lore-member: []
+  lore-staff:
+    - '&#FF55FFÔ #%id% &#AAAAAA(/clanadmin kho remove)'
+
+# Chuột phải vào chai boost bang hội để rút ra túi đồ. Tạm tắt (false): chai chỉ dùng được ngay trong kho.
+bottle-withdraw: false
+
+# Trong kho, ẩn các dòng lore gốc của vật phẩm có chứa một trong các chữ này (không phân biệt hoa thường, bỏ qua màu).
+# Dùng để giấu dòng kiểu "[Chuột phải để kích hoạt]" của chai boost: trong kho bấm là rút / dùng theo dòng của kho.
+# Vật phẩm rút ra vẫn giữ nguyên lore. Để [] nếu không muốn ẩn gì.
+hide-lore-containing:
+  - 'để kích hoạt'
+  - 'chuột phải'
+  - 'chuột trái'
+  - 'right click'
+  - 'right-click'
+  - 'left click'
+  - 'left-click'

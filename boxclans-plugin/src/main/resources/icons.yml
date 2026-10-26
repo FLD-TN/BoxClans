@@ -1,0 +1,142 @@
+# BoxClans — icons.yml: icon khiên động của bang hội (Cửa hàng bang hội, /clanadmin icon)
+# Icon là font image của ItemsAdder (pack 'shieldranks', chép vào plugins/ItemsAdder/contents/ rồi /iazip).
+# Placeholder:
+#   %boxclans_icon%         icon động (đổi khung theo frame-interval-ms), dùng cho tab / scoreboard / nametag
+#   %boxclans_icon_static%  icon tĩnh, dùng cho chat (tin nhắn chat không chuyển động được)
+#   %boxclans_icon_id%      id icon đang dùng, 'none' nếu chưa có
+#   %boxclans_top_<n>_icon%, %boxclans_clan_<mã bang hội>_icon%
+# Clan không có icon: hai placeholder icon trả về rỗng hoàn toàn (không có khoảng trắng).
+# Có icon: placeholder trả về icon + 1 khoảng trắng, nên viết liền: [%boxclans_icon%%boxclans_name%]
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 3
+
+# Icon cho clan mới tạo: id trong 'icons' bên dưới, hoặc none
+default-icon: none
+
+# Mỗi khung hình đứng bao lâu (ms, tối thiểu 50). 100 = đúng tốc độ GIF gốc; 200 = chậm gấp đôi, nhẹ mạng hơn.
+# Nhớ đặt '%boxclans_icon%' trong placeholder-refresh-intervals của TAB bằng đúng số này.
+frame-interval-ms: 100
+
+# <id>:
+#   display: tên hiển thị (tên item trong cửa hàng, %icon% trong tin nhắn)
+#   frames: số khung hình
+#   glyph: font image ItemsAdder của từng khung, {frame} = 1..frames
+#   static: font image cho chat
+#   menu-item: item ItemsAdder trong shop (texture động); không có thì dùng fallback-material
+#   default-owned: true = mọi bang hội đều có sẵn, chọn trong Cài đặt > Icon bang hội, không bán trong cửa hàng
+#   price: giá Minh Huy trong Cửa hàng bang hội (icon không default-owned). 0 = nhận miễn phí trong cửa hàng
+#          Giá mặc định chỉ là gợi ý, chỉnh lại theo kinh tế của server.
+#   permission: để trống = bang nào cũng mua được; có thì người mua (Minh Chủ / Phó Bang) cần quyền này
+icons:
+  blank_silver:
+    display: '&#BBBBBBKhiên Bạc'
+    frames: 25
+    glyph: 'shieldranks:blank_silver_{frame}'
+    static: 'shieldranks:blank_silver_static'
+    menu-item: 'shieldranks:blank_silver_item'
+    fallback-material: IRON_INGOT
+    price: 0
+    default-owned: true
+    permission: ''
+  blank_gold:
+    display: '&#FFAA00Khiên Vàng'
+    frames: 25
+    glyph: 'shieldranks:blank_gold_{frame}'
+    static: 'shieldranks:blank_gold_static'
+    menu-item: 'shieldranks:blank_gold_item'
+    fallback-material: GOLD_INGOT
+    price: 0
+    default-owned: true
+    permission: ''
+  blank_purple:
+    display: '&#AA55FFKhiên Tím'
+    frames: 28
+    glyph: 'shieldranks:blank_purple_{frame}'
+    static: 'shieldranks:blank_purple_static'
+    menu-item: 'shieldranks:blank_purple_item'
+    fallback-material: AMETHYST_SHARD
+    price: 0
+    default-owned: true
+    permission: ''
+  coins:
+    display: '&#FFE133Khiên Tiền Vàng'
+    frames: 28
+    glyph: 'shieldranks:coins_{frame}'
+    static: 'shieldranks:coins_static'
+    menu-item: 'shieldranks:coins_item'
+    fallback-material: GOLD_NUGGET
+    price: 300
+    permission: ''
+  emerald:
+    display: '&#55FF55Khiên Lục Bảo'
+    frames: 28
+    glyph: 'shieldranks:emerald_{frame}'
+    static: 'shieldranks:emerald_static'
+    menu-item: 'shieldranks:emerald_item'
+    fallback-material: EMERALD
+    price: 500
+    permission: ''
+  diamond:
+    display: '&#55FFFFKhiên Kim Cương'
+    frames: 25
+    glyph: 'shieldranks:diamond_{frame}'
+    static: 'shieldranks:diamond_static'
+    menu-item: 'shieldranks:diamond_item'
+    fallback-material: DIAMOND
+    price: 800
+    permission: ''
+  enchanter:
+    display: '&#FF55FFKhiên Phép Thuật'
+    frames: 28
+    glyph: 'shieldranks:enchanter_{frame}'
+    static: 'shieldranks:enchanter_static'
+    menu-item: 'shieldranks:enchanter_item'
+    fallback-material: ENCHANTED_BOOK
+    price: 800
+    permission: ''
+  sword:
+    display: '&#FF4127Khiên Kiếm'
+    frames: 28
+    glyph: 'shieldranks:sword_{frame}'
+    static: 'shieldranks:sword_static'
+    menu-item: 'shieldranks:sword_item'
+    fallback-material: IRON_SWORD
+    price: 500
+    permission: ''
+  skull:
+    display: '&#FF5555Khiên Đầu Lâu'
+    frames: 28
+    glyph: 'shieldranks:skull_{frame}'
+    static: 'shieldranks:skull_static'
+    menu-item: 'shieldranks:skull_item'
+    fallback-material: SKELETON_SKULL
+    price: 800
+    permission: ''
+  dragon:
+    display: '&#AA00FFKhiên Rồng'
+    frames: 28
+    glyph: 'shieldranks:dragon_{frame}'
+    static: 'shieldranks:dragon_static'
+    menu-item: 'shieldranks:dragon_item'
+    fallback-material: DRAGON_HEAD
+    price: 1500
+    permission: ''
+  royal:
+    display: '&#FFAA00Khiên Hoàng Gia'
+    frames: 28
+    glyph: 'shieldranks:royal_{frame}'
+    static: 'shieldranks:royal_static'
+    menu-item: 'shieldranks:royal_item'
+    fallback-material: GOLDEN_HELMET
+    price: 1500
+    permission: ''
+  axe:
+    display: '&#8A9BFFKhiên Rìu'
+    frames: 28
+    glyph: 'shieldranks:axe_{frame}'
+    static: 'shieldranks:axe_static'
+    menu-item: 'shieldranks:axe_item'
+    fallback-material: IRON_AXE
+    price: 500
+    permission: ''

@@ -1,0 +1,94 @@
+# BoxClans — config.yml
+# Mọi chữ hiển thị nằm trong messages.yml và menus/*.yml. File này chỉ chứa quy tắc.
+# Thiếu khoá nào thì plugin lấy giá trị mặc định trong jar. /clanadmin reload để nạp lại.
+
+config-version: 1
+
+# Tên bang hội (§4). Mã bang hội tự sinh = tên bỏ màu, bỏ dấu, bỏ khoảng trắng.
+# Tên không bắt đầu bằng mã màu sẽ hiện màu &6 (vàng cam) cho phần chưa có màu.
+clan-name:
+  min-length: 3
+  max-length: 16
+  # Kiểm tra trên mã bang hội (không phân biệt hoa thường, chứa từ này là bị chặn)
+  banned-words:
+    - 'admin'
+    - 'staff'
+    - 'moderator'
+    - 'owner'
+    - 'server'
+  # Giây giữa hai lần ĐỔI CHỮ (chỉ đổi màu thì không tính). Bỏ qua bằng boxclans.rename.bypasscooldown
+  rename-cooldown: 1800
+  # Permission cho từng loại màu. Để trống = ai cũng dùng được. &k, &m, gradient / rainbow và các tag
+  # click / hover / font luôn bị chặn trong tên clan.
+  color-permissions:
+    colors: ''        # &0-&f, <red>...
+    formats: ''       # &l &o &n (đậm, nghiêng, gạch chân)
+    hex: ''           # &#RRGGBB, &x&R&R&G&G&B&B, <#RRGGBB>
+
+# Mô tả clan: số ký tự tối đa (không tính mã màu; mã màu trong mô tả không có tác dụng)
+# 1.4.3: mặc định 50. Giá trị 64 (mặc định cũ) được hiểu là 50; muốn dài hơn thì đặt số khác 64.
+clan-description:
+  max-length: 50
+
+# Chat prompt (tạo clan, đổi tên, mời người chơi)
+prompt:
+  timeout: 60
+  cancel-words:
+    - 'cancel'
+    - 'huy'
+    - 'huỷ'
+    - 'hủy'
+
+# Lời mời
+invite:
+  expiry: 300
+  max-pending: 10
+
+# Chat bang hội (§4B). %role_color% %role% %player% %message% %clan%
+# Nếu file còn giữ nguyên định dạng mặc định cũ (chữ ᴄʟᴀɴ / ꜱᴘʏ) thì plugin tự dùng định dạng mới bên dưới.
+chat:
+  clan-format: '&#FFC700Bang Hội &7| %role_color%(%role%) %player%&7: &e%message%'
+  spy-format: '&#FF5555Giám sát &7| %clan% %role_color%(%role%) %player%&7: &e%message%'
+  # Tin bắt đầu bằng ký tự này được gửi vào chat bang ('' = tắt phím tắt)
+  shortcut-prefix: '!'
+
+# PvP trong bang (§4C)
+friendly-fire:
+  # Trạng thái của clan mới tạo
+  default: false
+  # Mỗi người nhận tối đa 1 tin báo lỗi trong khoảng này (giây)
+  message-cooldown: 3
+
+# Clan flag (§8.3): icon khi clan chưa có flag
+flag:
+  default-material: WHITE_BANNER
+
+# PlaceholderAPI (§9)
+placeholders:
+  # Giá trị trả về khi người chơi không có clan
+  none-value: ''
+  # %rel_boxclans_color%
+  relation-colors:
+    same: '&a'
+    none: '&c'
+
+# Chống farm kill (§7)
+anti-farm:
+  same-ip: true                # Luật A: cùng IP
+  network-window: 600          # Luật B, giây (0 = tắt)
+  pair-window: 600             # Luật C, giây (0 = tắt)
+  pair-max-kills: 3            # Luật C, số kill được tính trong một khung
+  notify-staff: true           # Báo staff (boxclans.admin.antialt) khi dính luật A / B
+  log-file: true               # Ghi plugins/BoxClans/antialt.log
+
+# Lịch sử bang hội (vào / rời, đổi vai trò, Minh Huy, cửa hàng...): bản ghi cũ hơn số ngày này tự xoá
+# (khi khởi động và mỗi giờ). Bang hội giải tán thì lịch sử của bang bị xoá.
+history:
+  keep-days: 30
+
+# Sao lưu tự động clans.db (toàn bộ clan, thành viên, điểm) vào plugins/BoxClans/backups/
+# Mỗi ngày 1 bản clans-<ngày>.db (tạo khi bật server hoặc trong vòng 1 giờ sau 0h), chạy nền nên không giật server.
+# Khôi phục: tắt server, chép một bản backup đè lên plugins/BoxClans/clans.db rồi bật lại.
+backup:
+  enabled: true
+  keep: 7                      # Số bản giữ lại, bản cũ hơn tự xoá

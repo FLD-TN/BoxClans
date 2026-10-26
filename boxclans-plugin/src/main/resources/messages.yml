@@ -1,0 +1,1821 @@
+# BoxClans — messages.yml
+# Mọi tin nhắn của plugin. Chấp nhận &c, &#RRGGBB và MiniMessage (<gradient:#FF0000:#FFAA00>...</gradient>).
+# Một tin nhắn có hai kênh:
+#   <khoá>:
+#     chat: { enabled: true, text: '...' }        # text có thể là danh sách nhiều dòng; prefix: false để bỏ prefix
+#     actionbar: { enabled: false, text: '...' }
+# Placeholder dạng %ten%. Tên clan (%clan%) luôn giữ màu của clan.
+# Thiếu khoá nào thì lấy bản mặc định trong jar. /clanadmin reload để nạp lại.
+
+config-version: 1
+# Không sửa dòng này. Khi bản mới của plugin có text-version cao hơn, file này được chuyển vào
+# old-configs/ và thay bằng bản mới (để cập nhật chữ). Sửa xong muốn giữ thì đừng hạ số này.
+text-version: 6
+prefix: '&8(&#FFC700&lBang Hội&8) '
+
+# ---------------------------------------------------------------- chung
+no-permission:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn không có quyền làm việc này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+player-only:
+  chat:
+    enabled: true
+    text: '&#FF5555Lệnh này chỉ dùng được trong game.'
+  actionbar:
+    enabled: false
+    text: ''
+
+unknown-command:
+  chat:
+    enabled: true
+    text: '&#FF5555Lệnh không tồn tại. Gõ &e/clan help &#FF5555để xem danh sách lệnh.'
+  actionbar:
+    enabled: false
+    text: ''
+
+usage:
+  chat:
+    enabled: true
+    text: '&#FF5555Cách dùng: &e%usage%'
+  actionbar:
+    enabled: false
+    text: ''
+
+player-not-found:
+  chat:
+    enabled: true
+    text: '&#FF5555Không tìm thấy người chơi &e%player%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+player-not-online:
+  chat:
+    enabled: true
+    text: '&#FF5555Người chơi &e%player% &#FF5555không online.'
+  actionbar:
+    enabled: false
+    text: ''
+
+clan-not-found:
+  chat:
+    enabled: true
+    text: '&#FF5555Không tìm thấy bang hội &e%clan%&#FF5555. Dùng mã bang hội, ví dụ &eRongDo&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+reload-done:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã nạp lại cấu hình BoxClans.'
+  actionbar:
+    enabled: false
+    text: ''
+
+reload-failed:
+  chat:
+    enabled: true
+    text: '&#FF5555Nạp lại thất bại, xem console. Cấu hình cũ vẫn đang dùng.'
+  actionbar:
+    enabled: false
+    text: ''
+
+action-cancelled:
+  chat:
+    enabled: true
+    text: '&#AAAAAAĐã huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invalid-number:
+  chat:
+    enabled: true
+    text: '&#FF5555&e%value% &#FF5555không phải số hợp lệ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- lỗi theo kết quả hành động
+error-not-in-clan:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn chưa có bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-already-in-clan:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn đã ở trong một bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-target-in-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FF5555đã ở trong một bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-target-not-member:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FF5555không phải thành viên bang hội của bạn.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-no-permission:
+  chat:
+    enabled: true
+    text: '&#FF5555Vai trò của bạn không có quyền làm việc này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-not-leader:
+  chat:
+    enabled: true
+    text: '&#FF5555Chỉ <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &#FF5555làm được việc này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-name-taken:
+  chat:
+    enabled: true
+    text: '&#FF5555Đã có bang hội dùng mã &b%key%&#FF5555. Đổi màu không làm tên khác đi, hãy chọn tên khác.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-clan-full:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đã đủ &e%max% &#FF5555thành viên.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-invite-limit:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đang có quá nhiều lời mời chờ (&e%max%&#FF5555). Huỷ bớt hoặc chờ hết hạn.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-already-invited:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FF5555đã được mời rồi.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-no-invite:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn không có lời mời nào từ bang hội này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-target-higher:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn chỉ được thao tác với &aThành Viên&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-self:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn không thể làm việc này với chính mình.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-leader-cannot-leave:
+  chat:
+    enabled: true
+    text: '&#FF5555Minh Chủ không thể rời bang. Hãy chuyển Minh Chủ (&e/clan transfer&#FF5555) hoặc giải tán (&e/clan disband&#FF5555).'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-target-is-leader:
+  chat:
+    enabled: true
+    text: '&#FF5555Không thể làm việc này với <gradient:#FFD600:#FF8C00>Minh Chủ</gradient>&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-same-role:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FF5555đã có vai trò này rồi.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-role-disabled:
+  chat:
+    enabled: true
+    text: '&#FF5555Vai trò này đang bị tắt trên server.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-unknown-clan:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội không còn tồn tại.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-rename-cooldown:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn chỉ được đổi chữ của tên sau &e%time%&#FF5555. Đổi màu thì vẫn được.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-same-name:
+  chat:
+    enabled: true
+    text: '&#FF5555Tên mới giống hệt tên hiện tại.'
+  actionbar:
+    enabled: false
+    text: ''
+
+error-needs-confirm:
+  chat:
+    enabled: true
+    text: '&#FF5555Việc này cần xác nhận.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- tên clan (§4)
+name-too-short:
+  chat:
+    enabled: true
+    text: '&#FF5555Tên quá ngắn: tối thiểu &e%min% &#FF5555ký tự (không tính mã màu). Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-too-long:
+  chat:
+    enabled: true
+    text: '&#FF5555Tên quá dài: tối đa &e%max% &#FF5555ký tự (không tính mã màu). Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-bad-characters:
+  chat:
+    enabled: true
+    text: '&#FF5555Tên chỉ gồm chữ (có dấu), số và khoảng trắng đơn. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-forbidden-format:
+  chat:
+    enabled: true
+    text: '&#FF5555Không được dùng &e%detail% &#FF5555trong tên bang hội. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-style-permission:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn chưa được dùng %style% &#FF5555trong tên bang hội. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-banned-word:
+  chat:
+    enabled: true
+    text: '&#FF5555Tên chứa từ bị cấm (&e%word%&#FF5555). Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+name-taken:
+  chat:
+    enabled: true
+    text: '&#FF5555Đã có bang hội dùng mã &b%key%&#FF5555. Đổi màu không làm tên khác đi. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- chat prompt
+prompt-create:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập tên bang hội vào khung chat (có thể kèm mã màu):'
+      - '&#AAAAAA  • &#FFFFFF%min%–%max% ký tự chữ (được dùng tiếng Việt có dấu, số, khoảng trắng)'
+      - '&#AAAAAA  • &#FFFFFFCác mã màu được hỗ trợ: &c&&c&#FFFFFF, &#FF5555&&#FF5555&#FFFFFF, &#FF5555&&x&&F&&F&&5&&5&&5&&5&#FFFFFF, <#FF5555>\<#FF5555>'
+      - '&#AAAAAA  • &#FFFFFFTham khảo mã màu tại: <click:open_url:''https://www.birdflop.com/resources/rgb/''><hover:show_text:''Bấm để mở trang web''>&#55FFFF&nhttps://www.birdflop.com/resources/rgb/</hover></click>'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ. Tự huỷ sau &e%timeout% &#AAAAAAgiây.'
+  actionbar:
+    enabled: true
+    text: '&#FFC700Nhập tên bang hội vào khung chat'
+
+prompt-rename:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập tên mới cho bang hội (cùng quy tắc như lúc tạo):'
+      - '&#AAAAAA  • &#FFFFFFChỉ đổi màu: không tính thời gian chờ'
+      - '&#AAAAAA  • &#FFFFFFĐổi chữ: chờ &e%cooldown% &#FFFFFFgiữa hai lần đổi'
+      - '&#AAAAAA  • &#FFFFFFTên hiện tại: %clan% &#AAAAAA(mã bang hội &b%key%&#AAAAAA)'
+      - '&#AAAAAA  • &#FFFFFFTham khảo mã màu tại: <click:open_url:''https://www.birdflop.com/resources/rgb/''><hover:show_text:''Bấm để mở trang web''>&#55FFFF&nhttps://www.birdflop.com/resources/rgb/</hover></click>'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ. Tự huỷ sau &e%timeout% &#AAAAAAgiây.'
+  actionbar:
+    enabled: true
+    text: '&#FFC700Nhập tên mới vào khung chat'
+
+prompt-invite:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập tên người chơi muốn mời vào khung chat.'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ. Tự huỷ sau &e%timeout% &#AAAAAAgiây.'
+  actionbar:
+    enabled: true
+    text: '&#FFC700Nhập tên người chơi muốn mời'
+
+prompt-description:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập mô tả bang hội vào khung chat (tối đa &e%max% &#FFC700ký tự).'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ, &e"-" &#AAAAAAđể xoá mô tả.'
+  actionbar:
+    enabled: false
+    text: ''
+
+prompt-cancelled:
+  chat:
+    enabled: true
+    text: '&#AAAAAAĐã huỷ nhập.'
+  actionbar:
+    enabled: false
+    text: ''
+
+prompt-timeout:
+  chat:
+    enabled: true
+    text: '&#AAAAAAHết thời gian nhập, đã huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- tạo / giải tán
+clan-created:
+  chat:
+    enabled: true
+    text: '&#55FF55Bạn đã tạo bang hội %clan%&#55FF55! Mã bang hội: &b%key%'
+  actionbar:
+    enabled: true
+    text: '&#55FF55Bang hội %clan% &#55FF55đã được tạo!'
+
+clan-created-broadcast:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFvừa lập bang hội %clan%&#FFFFFF!'
+  actionbar:
+    enabled: false
+    text: ''
+
+clan-disbanded:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn đã giải tán bang hội %clan%&#FF5555.'
+  actionbar:
+    enabled: true
+    text: '&#FF5555Bang hội %clan% &#FF5555đã giải tán'
+
+clan-disbanded-broadcast:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội %clan% &#FF5555đã bị giải tán.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- lời mời
+invite-sent:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã mời &#FFAA00%player% &#55FF55vào bang hội.'
+  actionbar:
+    enabled: true
+    text: '&#55FF55Đã gửi lời mời tới &#FFAA00%player%'
+
+invite-sent-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%actor% &#FFFFFFđã mời &#FFAA00%player% &#FFFFFFvào bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-received:
+  chat:
+    enabled: true
+    text:
+      - '&#FFAA00%player% &#FFFFFFmời bạn vào bang hội %clan%&#FFFFFF!'
+      - '&#AAAAAA  <click:run_command:/clan accept %key%><hover:show_text:''Bấm để vào bang hội''>&#55FF55[Chấp nhận]</hover></click> <click:run_command:/clan deny %key%><hover:show_text:''Bấm để từ chối''>&#FF5555[Từ chối]</hover></click> &#AAAAAAHết hạn sau &e%expiry%&#AAAAAA.'
+  actionbar:
+    enabled: true
+    text: '&#FFFFFFLời mời vào bang hội %clan%'
+
+invite-revoked:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã huỷ lời mời của &#FFAA00%player%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-revoked-target:
+  chat:
+    enabled: true
+    text: '&#FFFFFFLời mời vào bang hội %clan% &#FFFFFFđã bị huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-accepted:
+  chat:
+    enabled: true
+    text: '&#55FF55Bạn đã gia nhập bang hội %clan%&#55FF55!'
+  actionbar:
+    enabled: true
+    text: '&#55FF55Chào mừng tới %clan%'
+
+member-joined:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#55FF55đã gia nhập bang hội!'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-denied:
+  chat:
+    enabled: true
+    text: '&#FFFFFFBạn đã từ chối lời mời của %clan%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-denied-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã từ chối lời mời vào bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invite-choose:
+  chat:
+    enabled: true
+    text: '&#FFFFFFBạn có nhiều lời mời. Gõ &e/clan invites &#FFFFFFđể chọn bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+invites-header:
+  chat:
+    enabled: true
+    text: '&#FFFFFFLời mời của bạn (&#FFAA00%count%&#FFFFFF):'
+  actionbar:
+    enabled: false
+    text: ''
+
+invites-entry:
+  chat:
+    enabled: true
+    prefix: false
+    text:
+      - '&#AAAAAA- %clan% &#AAAAAAtừ &#FFAA00%player% &#AAAAAAcòn &e%expiry% <click:run_command:/clan accept %key%>&#55FF55[Vào]</click> <click:run_command:/clan deny %key%>&#FF5555[Từ chối]</click>'
+  actionbar:
+    enabled: false
+    text: ''
+
+invites-empty:
+  chat:
+    enabled: true
+    text: '&#AAAAAABạn không có lời mời nào.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- rời / kick
+clan-left:
+  chat:
+    enabled: true
+    text: '&#FFFFFFBạn đã rời bang hội %clan%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+member-left:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã rời bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+member-kicked:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã bị &#FFAA00%actor% &#FFFFFFkick khỏi bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- role (§4A)
+role-changed:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFgiờ là %role%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+leader-changed:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFlà <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &#FFFFFFmới của bang hội! &#FFAA00%old% &#FFFFFFtrở về %member_role%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+over-limit-kicked:
+  chat:
+    enabled: true
+    text: '&#FF5555Minh Chủ mới chỉ được &e%limit% &#FF5555thành viên. Bị loại ngẫu nhiên: &#FFAA00%players%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- đổi tên / mô tả / PvP
+clan-renamed:
+  chat:
+    enabled: true
+    text: '&#FFFFFFBang hội đã đổi tên: %old% &#FFFFFFthành %clan% &#AAAAAA(mã bang hội &b%key%&#AAAAAA)'
+  actionbar:
+    enabled: false
+    text: ''
+
+description-updated:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cập nhật mô tả bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+description-cleared:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã xoá mô tả bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+description-too-long:
+  chat:
+    enabled: true
+    text: '&#FF5555Mô tả tối đa &e%max% &#FF5555ký tự.'
+  actionbar:
+    enabled: false
+    text: ''
+
+friendly-fire-enabled:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã &cBẬT &#FFFFFFPvP trong bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+friendly-fire-disabled:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã &#55FF55TẮT &#FFFFFFPvP trong bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+flag-saved:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã lưu cờ bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+flag-cleared:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã xoá cờ bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+flag-max-layers:
+  chat:
+    enabled: true
+    text: '&#FF5555Cờ chỉ được tối đa &#FFFFFF%max% &#FF5555lớp hoa văn.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- chat bang hội (§4B)
+chat-mode-on:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bật chế độ chat bang hội. Gõ &e/cc &#55FF55lần nữa để tắt.'
+  actionbar:
+    enabled: true
+    text: '&#55FF55Chat bang hội: BẬT'
+
+chat-mode-off:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã tắt chế độ chat bang hội.'
+  actionbar:
+    enabled: true
+    text: '&#FFFFFFChat bang hội: TẮT'
+
+spy-on:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bật xem chat của mọi bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+spy-off:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã tắt xem chat của mọi bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+chat-sound-on:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bật âm thanh khi có tin chat bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+chat-sound-off:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã tắt âm thanh khi có tin chat bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+member-sound-on:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bật âm thanh khi có thành viên mới.'
+  actionbar:
+    enabled: false
+    text: ''
+
+member-sound-off:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã tắt âm thanh khi có thành viên mới.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- quản trị
+admin-disbanded:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã giải tán bang hội %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-kicked:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã kick &#FFAA00%player% &#55FF55khỏi %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-role-set:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đặt &#FFAA00%player% &#55FF55thành %role% &#55FF55trong %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-transfer-confirm:
+  chat:
+    enabled: true
+    text: '&#FF5555Minh Chủ mới chỉ được &e%limit% &#FF5555thành viên, &e%excess% &#FF5555người sẽ bị kick ngẫu nhiên. Gõ lại lệnh kèm &econfirm &#FF5555để thực hiện.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-swap-confirm:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang đã có Phó Bang &#FFAA00%player%&#FF5555, người này sẽ trở về Thành Viên. Gõ lại lệnh kèm &econfirm &#FF5555để thực hiện.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-renamed:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đổi tên %old% &#55FF55thành %clan% &#AAAAAA(mã bang hội &b%key%&#AAAAAA)'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-trimmed:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã kick ngẫu nhiên &e%count% &#55FF55người khỏi %clan% &#55FF55để về giới hạn &e%limit%&#55FF55: &#FFAA00%players%'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-trim-none:
+  chat:
+    enabled: true
+    text: '&#FFFFFFBang hội %clan% &#FFFFFFkhông vượt giới hạn (&e%size%&#FFFFFF/&e%limit%&#FFFFFF).'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- Danh Vọng (điểm bang hội, §5)
+points-gained:
+  chat:
+    enabled: true
+    text: '&#FFC94D+%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA) từ &#FFAA00%player%&#AAAAAA. Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: true
+    text: '&#FFC94D+%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA)'
+
+points-gained-clan:
+  chat:
+    enabled: true
+    text: '&#FFC94D+%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA). Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: true
+    text: '&#FFC94D+%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA)'
+
+points-lost:
+  chat:
+    enabled: true
+    text: '&#FF5555-%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA) từ &#FFAA00%player%&#AAAAAA. Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-lost-clan:
+  chat:
+    enabled: true
+    text: '&#FF5555-%amount% Danh Vọng &#AAAAAA(%source%&#AAAAAA). Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-clan-cap:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đã đạt tối đa &#FFFFFF%cap% &#FF5555Danh Vọng từ &#FFFFFF%source% &#FF5555hôm nay. Hãy kiếm Danh Vọng bằng hoạt động khác!'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-given:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cộng &#FFC94D%amount% Danh Vọng &#55FF55(&#FFFFFF%source%&#55FF55) cho %clan% &#55FF55qua &#FFAA00%player%&#55FF55. Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-not-given:
+  chat:
+    enabled: true
+    text: '&#FFFFFFKhông cộng Danh Vọng (&#FFFFFF%source%&#FFFFFF) cho &#FFAA00%player%&#FFFFFF: %reason%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-added:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cộng &#FFC94D%amount% Danh Vọng &#55FF55(&#FFFFFF%source%&#55FF55) cho %clan%&#55FF55. Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-taken:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã trừ &#FFC94D%amount% Danh Vọng &#55FF55(&#FFFFFF%source%&#55FF55) của %clan%&#55FF55. Tổng: &#FFC94D%total%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-set:
+  chat:
+    enabled: true
+    text: '&#55FF55Danh Vọng của %clan% &#55FF55giờ là &#FFC94D%total%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-reset:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đưa Danh Vọng của %clan% &#55FF55về 0.'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-reset-all:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đưa Danh Vọng của &#FFFFFF%count% &#55FF55bang hội về 0.'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-reset-confirm:
+  chat:
+    enabled: true
+    text: '&#FF5555Lệnh này đưa Danh Vọng của &#FFFFFF%count% &#FF5555bang hội về 0. Gõ thêm &econfirm &#FF5555để thực hiện.'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-log-header:
+  chat:
+    enabled: true
+    text: '&#FFFFFFSổ Danh Vọng của %clan% &#AAAAAA(trang %page%/%pages%, %count% dòng)'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-log-entry:
+  chat:
+    enabled: true
+    prefix: false
+    text: '&#AAAAAA %time% &#FFFFFF%source% &#FFAA00%player% &#FFC94D%delta% &#AAAAAAbởi %by%'
+  actionbar:
+    enabled: false
+    text: ''
+
+points-log-empty:
+  chat:
+    enabled: true
+    text: '&#AAAAAAChưa có dòng nào.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- Minh Huy (tiền tệ của cả bang hội)
+# %amount% %balance% (dạng 1.250) %reason% %clan%
+# Gửi cho thành viên online khi bang nhận / bị trừ Minh Huy (trừ khi lệnh có -s)
+minhhuy-gained:
+  chat:
+    enabled: true
+    text: '&#C77DFFBang hội nhận +%amount% Minh Huy &#AAAAAA(%reason%&#AAAAAA). Số dư: &#C77DFF%balance%'
+  actionbar:
+    enabled: true
+    text: '&#C77DFF+%amount% Minh Huy &#AAAAAA(%reason%&#AAAAAA)'
+
+minhhuy-lost:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội bị trừ %amount% Minh Huy &#AAAAAA(%reason%&#AAAAAA). Số dư: &#C77DFF%balance%'
+  actionbar:
+    enabled: false
+    text: ''
+
+# Trả lời người dùng lệnh /clanadmin minhhuy
+minhhuy-given:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cộng &#C77DFF%amount% Minh Huy &#55FF55cho %clan% &#AAAAAA(%reason%&#AAAAAA)&#55FF55. Số dư: &#C77DFF%balance%'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-taken:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã trừ &#C77DFF%amount% Minh Huy &#55FF55của %clan% &#AAAAAA(%reason%&#AAAAAA)&#55FF55. Số dư: &#C77DFF%balance%'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-set:
+  chat:
+    enabled: true
+    text: '&#55FF55Minh Huy của %clan% &#55FF55giờ là &#C77DFF%balance%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-reset:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đưa Minh Huy của %clan% &#55FF55về 0.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-reset-all:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đưa Minh Huy của &#FFFFFF%count% &#55FF55bang hội về 0.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-reset-confirm:
+  chat:
+    enabled: true
+    text: '&#FF5555Lệnh này đưa Minh Huy của &#FFFFFF%count% &#FF5555bang hội về 0. Gõ thêm &econfirm &#FF5555để thực hiện.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-not-enough:
+  chat:
+    enabled: true
+    text: '&#FF5555%clan% &#FF5555chỉ có &#C77DFF%balance% Minh Huy&#FF5555, không đủ để trừ %amount%. Không trừ gì.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-limit:
+  chat:
+    enabled: true
+    text: '&#FF5555Minh Huy của %clan% &#FF5555sẽ vượt mức tối đa 1.000.000.000.000. Không cộng gì.'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-invalid-amount:
+  chat:
+    enabled: true
+    text: '&#FF5555&e%value% &#FF5555không phải số Minh Huy hợp lệ (số nguyên lớn hơn 0).'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-log-header:
+  chat:
+    enabled: true
+    text: '&#FFFFFFSổ Minh Huy của %clan% &#AAAAAA(số dư &#C77DFF%balance%&#AAAAAA, trang %page%/%pages%, %count% dòng)'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-log-entry:
+  chat:
+    enabled: true
+    prefix: false
+    text: '&#AAAAAA %time% &#C77DFF%change% &#FFFFFF%reason% &#AAAAAAbởi %by%'
+  actionbar:
+    enabled: false
+    text: ''
+
+minhhuy-log-empty:
+  chat:
+    enabled: true
+    text: '&#AAAAAAChưa có dòng nào.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# Đích của lệnh admin: clan <mã bang hội> hoặc player <tên>
+target-player-no-clan:
+  chat:
+    enabled: true
+    text: '&#FF5555Người chơi &e%player% &#FF5555không có bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+target-kind:
+  chat:
+    enabled: true
+    text: '&#FF5555Phải ghi rõ &eclan <mã bang hội> &#FF5555hoặc &eplayer <tên người chơi>&#FF5555 (không phải &e%value%&#FF5555).'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- Cửa hàng và Kho bang hội
+# %item% tên vật phẩm, %price% giá, %balance% số dư Minh Huy, %player% %role% người làm
+
+shop-not-manager:
+  chat:
+    enabled: true
+    text: '&#FF5555Chỉ <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &#FF5555và &#5CD6FFPhó Bang &#FF5555được mua trong cửa hàng bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-not-for-sale:
+  chat:
+    enabled: true
+    text: '&#FF5555Vật phẩm này không còn được bán.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-price-changed:
+  chat:
+    enabled: true
+    text: '&#FF5555Giá vừa thay đổi, hãy mở lại cửa hàng và mua lại.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-weekly-limit:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đã mua %item% &#FF5555đủ &e%limit% &#FF5555lần trong tuần này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-not-enough:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội chỉ có &#C77DFF%balance% Minh Huy&#FF5555, cần &#C77DFF%price%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-icon-owned:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đã có icon %icon%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# Gửi cho cả bang hội
+shop-bought-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#AAAAAA(%role%&#AAAAAA) &#FFFFFFđã mua %item% &#FFFFFFvới &#C77DFF%price% Minh Huy&#FFFFFF. Còn lại: &#C77DFF%balance%'
+  actionbar:
+    enabled: false
+    text: ''
+
+# Gửi cho người mua icon
+shop-icon-bought:
+  chat:
+    enabled: true
+    text:
+      - '&#55FF55Đã mua icon %icon%&#55FF55. Icon chưa được trang bị.'
+      - '&#AAAAAA  Trang bị tại &e/clan &#AAAAAA> Cài đặt > Icon bang hội, hoặc <click:run_command:/clan icons><hover:show_text:''Mở menu icon''>&e[bấm vào đây]</hover></click>&#AAAAAA.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-not-manager:
+  chat:
+    enabled: true
+    text: '&#FF5555Chỉ <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &#FF5555và &#5CD6FFPhó Bang &#FF5555được rút hoặc dùng đồ trong kho.'
+  actionbar:
+    enabled: false
+    text: ''
+
+
+vault-missing:
+  chat:
+    enabled: true
+    text: '&#FF5555Vật phẩm không còn trong kho.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-inventory-full:
+  chat:
+    enabled: true
+    text: '&#FF5555Túi đồ đầy, hãy dọn một ô rồi rút lại. Kho không bị trừ.'
+  actionbar:
+    enabled: true
+    text: '&#FF5555Túi đồ đầy'
+
+# Gửi cho cả bang hội
+vault-withdrawn-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#AAAAAA(%role%&#AAAAAA) &#FFFFFFđã rút %item% &#FFFFFFkhỏi kho bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-used-clan:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#AAAAAA(%role%&#AAAAAA) &#FFFFFFđã dùng %item% &#FFFFFFtừ kho bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-boost-unavailable:
+  chat:
+    enabled: true
+    text: '&#FF5555Boost bang hội chưa hoạt động trên server (cần BoxCore 1.5.0), hãy báo quản trị viên.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-boost-lower:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội đang có boost x%old%&#FF5555, chai x%multiplier% thấp hơn nên không dùng được.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-boost-full:
+  chat:
+    enabled: true
+    text: '&#FF5555Boost bang hội x%multiplier% đã đạt thời gian tối đa, chưa cộng thêm được.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-boost-invalid:
+  chat:
+    enabled: true
+    text: '&#FF5555Chai boost này không còn hợp lệ, hãy báo quản trị viên.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-not-owned:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội chưa có icon %icon%&#FF5555. Mua trong Cửa hàng bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- quản trị Cửa hàng / Kho / Boost
+prompt-shop-price:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập giá Minh Huy cho %item% &#FFC700vào khung chat (số nguyên lớn hơn 0).'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+prompt-shop-limit:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập số lần mỗi bang được mua %item% &#FFC700mỗi tuần (0 = không giới hạn).'
+      - '&#AAAAAA  Gõ &e"cancel" &#AAAAAAđể huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+prompt-shop-command:
+  chat:
+    enabled: true
+    text:
+      - '&#FFC700Nhập lệnh console cho %item% &#FFC700(không cần dấu /). {player} = người rút, {clan} = mã bang hội.'
+      - '&#AAAAAA  Ví dụ: &ecrate key give {player} vote 1&#AAAAAA. Gõ &e"cancel" &#AAAAAAđể huỷ.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-edit-no-item:
+  chat:
+    enabled: true
+    text: '&#FF5555Hãy cầm vật phẩm trên con trỏ (hoặc trên tay) trước.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-edit-bad-number:
+  chat:
+    enabled: true
+    text: '&#FF5555&e%value% &#FF5555không phải số hợp lệ. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-edit-bad-command:
+  chat:
+    enabled: true
+    text: '&#FF5555Lệnh trống hoặc quá dài. Nhập lại:'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-edit-too-many-commands:
+  chat:
+    enabled: true
+    text: '&#FF5555Một vật phẩm có tối đa &e%max% &#FF5555lệnh.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-edit-no-command:
+  chat:
+    enabled: true
+    text: '&#FF5555Mục #%id% không có lệnh đó.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-entry-added:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã thêm %item% &#55FF55vào cửa hàng (mục &e#%id%&#55FF55, danh mục &e%category%&#55FF55, giá &#C77DFF%price%&#55FF55).'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-entry-saved:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã lưu mục &e#%id%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-entry-removed:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã xoá mục &e#%id% &#55FF55khỏi cửa hàng. Đồ đã mua trong kho vẫn giữ nguyên.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-entry-unknown:
+  chat:
+    enabled: true
+    text: '&#FF5555Không có mục &e%id% &#FF5555trong cửa hàng. Xem &e/clanadmin shop list&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-category-unknown:
+  chat:
+    enabled: true
+    text: '&#FF5555Không có danh mục &e%category%&#FF5555. Có: &e%categories%'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-list-header:
+  chat:
+    enabled: true
+    text: '&#FFFFFFCửa hàng bang hội: &e%count% &#FFFFFFmục'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-list-entry:
+  chat:
+    enabled: true
+    prefix: false
+    text: '&#AAAAAA #%id% %item% &#AAAAAA[%category%] &#C77DFF%price% &#AAAAAAtuần: %limit%, %mode% (%commands% lệnh) %hidden%'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-given:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cho %amount% x %item% &#55FF55vào kho của %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-given-clan:
+  chat:
+    enabled: true
+    text: '&#55FF55Kho bang hội nhận được %amount% x %item%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-removed:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã lấy %amount% x %item% &#55FF55khỏi kho của %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+vault-bad-amount:
+  chat:
+    enabled: true
+    text: '&#FF5555Số lượng &e%value% &#FF5555không hợp lệ (1 đến %max%).'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-unavailable:
+  chat:
+    enabled: true
+    text: '&#FF5555Boost bang hội chưa hoạt động (cần BoxCore 1.5.0).'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-unknown-type:
+  chat:
+    enabled: true
+    text: '&#FF5555BoxCore không có loại boost &e%type%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-bad-value:
+  chat:
+    enabled: true
+    text: '&#FF5555Hệ số hoặc thời gian không hợp lệ (ví dụ &e2 1h&#FF5555, &e1.5 30m&#FF5555), hoặc vượt giới hạn của BoxCore.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-started:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bật boost %type% x%multiplier% cho %clan% &#55FF55trong %duration%.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-extended:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã cộng thêm thời gian vào boost %type% x%multiplier% của %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-replaced:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã thay boost %type% x%old% của %clan% &#55FF55bằng x%multiplier% trong %duration%.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-lower:
+  chat:
+    enabled: true
+    text: '&#FF5555%clan% &#FF5555đang có boost %type% x%old% cao hơn, không đổi gì.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-full:
+  chat:
+    enabled: true
+    text: '&#FF5555Boost %type% của %clan% &#FF5555đã đạt thời gian tối đa.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-stopped:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã dừng boost %type% của %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+boost-not-running:
+  chat:
+    enabled: true
+    text: '&#FF5555%clan% &#FF5555không có boost %type% đang chạy.'
+  actionbar:
+    enabled: false
+    text: ''
+
+shop-list-hidden: '&#FF5555(ẩn)'
+
+# ---------------------------------------------------------------- PvP trong bang, chống farm, sự kiện kill (§4C, §7, §5.4)
+friendly-fire-blocked:
+  chat:
+    enabled: true
+    text: '<click:run_command:/clan settings><hover:show_text:"Mở cài đặt bang hội">&#FF5555Bạn không thể tấn công thành viên cùng bang hội! &7PvP trong bang đang tắt, bật trong &eCài đặt bang hội &7(/clan settings).</hover></click>'
+  actionbar:
+    enabled: false
+    text: ''
+
+friendly-fire-blocked-ask:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn không thể tấn công thành viên cùng bang hội! &7PvP trong bang đang tắt, hãy nhờ <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &7hoặc &bPhó Bang &7bật trong Cài đặt bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+kill-blocked-same-ip:
+  chat:
+    enabled: true
+    text: '&#FF5555Hạ gục &#FFAA00%victim% &#FF5555không được tính Danh Vọng: hai bạn dùng chung mạng (IP).'
+  actionbar:
+    enabled: false
+    text: ''
+
+kill-blocked-network:
+  chat:
+    enabled: true
+    text: '&#FF5555Hạ gục &#FFAA00%victim% &#FF5555không được tính Danh Vọng: bạn vừa hạ một tài khoản khác cùng mạng với người này.'
+  actionbar:
+    enabled: false
+    text: ''
+
+kill-blocked-pair:
+  chat:
+    enabled: true
+    text: '&#FF5555Hạ gục &#FFAA00%victim% &#FF5555không được tính Danh Vọng: bạn đã hạ người này &#FFFFFF%max% &#FF5555lần trong &#FFFFFF%window%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+kill-blocked-clan-cap:
+  chat:
+    enabled: true
+    text: '&#FF5555Hạ gục không được tính Danh Vọng: bang hội đã đạt tối đa &#FFFFFF%cap% &#FF5555Danh Vọng từ hạ gục hôm nay.'
+  actionbar:
+    enabled: false
+    text: ''
+
+anti-alt-case1:
+  chat:
+    enabled: true
+    text: '&#FF5555&l(!)&r &#FFAA00%killer% &#FFFFFFhạ &#FFAA00%victim% &#FFFFFFcùng IP &e%ip% &#FFFFFF(nghi acc phụ, luật A). Không tính Danh Vọng.'
+  actionbar:
+    enabled: false
+    text: ''
+
+anti-alt-case2:
+  chat:
+    enabled: true
+    text: '&#FF5555&l(!)&r &#FFAA00%killer% &#FFFFFFhạ nhiều tài khoản cùng mạng &e%ip% &#FFFFFF(nạn nhân &#FFAA00%victim%&#FFFFFF, luật B). Không tính Danh Vọng.'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-started:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã bắt đầu sự kiện %event% &#55FF55trong &e%time%&#55FF55: hạ gục &#FFC94D%kill%&#55FF55, bị hạ gục &#FFC94D%death%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-stopped:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐã dừng sự kiện %event%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-running:
+  chat:
+    enabled: true
+    text: '&#FF5555Đang có sự kiện %event% &#FF5555chạy. Dừng nó trước bằng &e/clanadmin killevent stop&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-none:
+  chat:
+    enabled: true
+    text: '&#AAAAAAKhông có sự kiện kill nào đang chạy.'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-status:
+  chat:
+    enabled: true
+    text: '&#FFFFFFĐang chạy: %event% &#AAAAAA(còn &e%time%&#AAAAAA)'
+  actionbar:
+    enabled: false
+    text: ''
+
+killevent-unknown:
+  chat:
+    enabled: true
+    text: '&#FF5555Không có profile &e%profile% &#FF5555trong points.yml. Có: &e%profiles%'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- thông báo gửi cho người offline (bảng notices)
+notice-kicked:
+  chat:
+    enabled: true
+    text: '&#FF5555Bạn đã bị kick khỏi bang hội %clan%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+notice-kicked-over-limit:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội %clan% &#FF5555đổi Minh Chủ và vượt giới hạn &#FFFFFF%limit% &#FF5555thành viên, bạn bị loại ngẫu nhiên.'
+  actionbar:
+    enabled: false
+    text: ''
+
+notice-clan-disbanded:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang hội %clan% &#FF5555của bạn đã bị giải tán.'
+  actionbar:
+    enabled: false
+    text: ''
+
+notice-header:
+  chat:
+    enabled: true
+    text: '&#FFFFFFTrong lúc bạn vắng mặt:'
+  actionbar:
+    enabled: false
+    text: ''
+
+# ---------------------------------------------------------------- chữ dùng chung (không phải tin nhắn)
+# nhãn dùng bên trong tin nhắn
+style-labels:
+  colors: '&emàu thường (&&c...)'
+  formats: '&eđịnh dạng (đậm, nghiêng, gạch chân)'
+  hex: '&emàu hex (&&#RRGGBB)'
+pvp-on: '&cBật'
+pvp-off: '&aTắt'
+none: '&7Không có'
+unlimited: 'Không giới hạn'
+list-separator: '&7, '
+time:
+  second: 'giây'
+  minute: 'phút'
+  hour: 'giờ'
+  day: 'ngày'
+date-format: 'dd/MM/yyyy'
+# Lý do mặc định của /clanadmin minhhuy khi không ghi lý do
+minhhuy-default-reason: 'Quản trị viên'
+# lý do không cộng Danh Vọng (/clanadmin points give)
+point-status:
+  no-clan: '&#AAAAAAngười chơi không có bang hội'
+  unknown-source: '&#FF5555nguồn không có trong points.yml'
+  source-disabled: '&#AAAAAAnguồn đang tắt'
+  cooldown: '&#AAAAAAđang trong cooldown của nguồn'
+  daily-cap: '&#AAAAAAngười chơi đã đạt giới hạn ngày của nguồn'
+  clan-daily-cap: '&#AAAAAAbang hội đã đạt giới hạn ngày của nguồn'
+  accumulated: '&#AAAAAAđã đếm, chưa đủ số lần (every)'
+  cancelled: '&#AAAAAAplugin khác đã huỷ'
+  blocked: '&#AAAAAAbị luật chống farm chặn'
+  zero: '&#AAAAAAkhông có Danh Vọng để cộng'
+  queued: '&#AAAAAAđã xếp hàng'
+
+# ---------------------------------------------------------------- danh sách nhiều dòng
+help:
+  - '&#FFC700&lBang Hội &7- Danh sách lệnh'
+  - '&e/clan &7- Mở menu bang hội'
+  - '&e/clan create [tên] &7- Tạo bang hội (bỏ trống tên để nhập qua chat)'
+  - '&e/clan invite <người> &7- Mời người chơi'
+  - '&e/clan uninvite <người> &7- Huỷ lời mời'
+  - '&e/clan accept [mã] &7/ &edeny [mã] &7/ &einvites &7- Lời mời của bạn'
+  - '&e/clan leave &7- Rời bang hội'
+  - '&e/clan kick <người> &7- Kick thành viên'
+  - '&e/clan setrole <người> <MinhChu|PhoBang|ThanhVien> &7- Đổi vai trò'
+  - '&e/clan promote | demote | transfer <người> &7- Lên Phó Bang / về Thành Viên / chuyển Minh Chủ'
+  - '&e/clan rename &7- Đổi tên hoặc màu tên bang'
+  - '&e/clan description <mô tả> &7- Đặt mô tả'
+  - '&e/clan flag &7- Thiết kế cờ bang hội'
+  - '&e/clan pvp &7- Bật / tắt PvP trong bang'
+  - '&e/clan chat [tin] &7hoặc &e/cc [tin] &7hoặc &e!tin &7- Chat bang hội'
+  - '&e/clan settings &7- Cài đặt bang hội'
+  - '&e/clan shop &7- Cửa hàng bang hội'
+  - '&e/clan kho &7- Kho bang hội'
+  - '&e/clan icons &7- Chọn icon bang hội'
+  - '&e/clan lichsu &7- Lịch sử bang hội'
+  - '&e/clan info [mã|người] &7- Thông tin bang hội'
+  - '&e/clan list &7/ &etop &7- Danh sách / bảng xếp hạng'
+  - '&e/clan disband &7- Giải tán bang hội'
+
+# ---------------------------------------------------------------- icon khiên (Cửa hàng bang hội, /clanadmin icon)
+icon-changed:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã đổi icon bang hội thành %icon%&#FFFFFF.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-removed:
+  chat:
+    enabled: true
+    text: '&#FFAA00%player% &#FFFFFFđã gỡ icon bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-not-leader:
+  chat:
+    enabled: true
+    text: '&#FF5555Chỉ <gradient:#FFD600:#FF8C00>Minh Chủ</gradient> &#FF5555và &#5CD6FFPhó Bang &#FF5555mới đổi được icon bang hội.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-locked:
+  chat:
+    enabled: true
+    text: '&#FF5555Icon %icon% &#FF5555cần quyền &e%permission%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-not-for-sale:
+  chat:
+    enabled: true
+    text: '&#FF5555Icon %icon% &#FF5555chưa mở bán.'
+  actionbar:
+    enabled: false
+    text: ''
+
+icon-unknown:
+  chat:
+    enabled: true
+    text: '&#FF5555Không có icon &e%icon%&#FF5555. Các icon: &e%icons%'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-set:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã đặt icon %icon% &#55FF55cho bang %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-removed:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã gỡ icon của bang %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-cancelled:
+  chat:
+    enabled: true
+    text: '&#FF5555Một plugin khác đã chặn việc đổi icon của bang %clan%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-unlocked:
+  chat:
+    enabled: true
+    text: '&#55FF55Bang %clan% &#55FF55đã sở hữu icon %icon%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-already-owned:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang %clan% &#FF5555đã sở hữu icon %icon% &#FF5555từ trước.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-locked:
+  chat:
+    enabled: true
+    text: '&#55FF55Đã thu hồi icon %icon% &#55FF55của bang %clan%&#55FF55.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-not-owned:
+  chat:
+    enabled: true
+    text: '&#FF5555Bang %clan% &#FF5555không sở hữu icon %icon%&#FF5555.'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-list:
+  chat:
+    enabled: true
+    text: '&#AAAAAACác icon: &#FFFFFF%icons%'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-icon-list-clan:
+  chat:
+    enabled: true
+    text: '&#AAAAAABang %clan%&#AAAAAA: đang dùng %icon%&#AAAAAA, sở hữu: &#FFFFFF%owned%'
+  actionbar:
+    enabled: false
+    text: ''
+
+admin-help:
+  - '&#FF5555&lQuản trị bang hội'
+  - '&e/clanadmin disband <mã> &7- Giải tán bang'
+  - '&e/clanadmin kick <người> &7- Kick khỏi bang'
+  - '&e/clanadmin setrole <người> <MinhChu|PhoBang|ThanhVien> [confirm]'
+  - '&e/clanadmin rename <mã> <tên màu mới>'
+  - '&e/clanadmin trim <mã> &7- Kick ngẫu nhiên về đúng giới hạn'
+  - '&e/clanadmin points (hoặc danhvong) give|add|take|set|reset|log &7- Danh Vọng'
+  - '&e/clanadmin killevent start <profile> <thời gian> | stop'
+  - '&e/clanadmin minhhuy give|take|set <clan|player> <mã|tên> <số> [lý do] [-s] &7- Minh Huy'
+  - '&e/clanadmin minhhuy reset clan <mã> | reset all | log <clan|player> <mã|tên>'
+  - '&e/clanadmin icon set <mã> <icon|none> &7- Đặt / gỡ icon khiên'
+  - '&e/clanadmin icon unlock|lock <mã> <icon> &7- Cho / thu hồi icon'
+  - '&e/clanadmin icon list [mã]'
+  - '&e/clanadmin shop edit | add <danh mục> <giá> [tuần] | list &7- Cửa hàng'
+  - '&e/clanadmin kho give|giveshop <clan|player> <mã|tên> ... | view <mã> &7- Kho'
+  - '&e/clanadmin boost start|stop <clan|player> <mã|tên> <loại> ... &7- Boost bang hội'
+  - '&e/clanadmin history <mã> &7- Xem lịch sử của một bang'
+  - '&e/clanadmin spy &7- Xem chat mọi bang'
+  - '&e/clanadmin reload'
+
+info:
+  - '&8&m                                        '
+  - ' %clan% &7(mã bang hội &b%key%&7)'
+  - ' &#AAAAAAMinh Chủ: <gradient:#FFD600:#FF8C00>%leader%</gradient>'
+  - ' &#AAAAAAPhó Bang: &#5CD6FF%vice%'
+  - ' &#AAAAAAThành viên: &#55FF55%members%/%max_members% &7(&a%online% online&7)'
+  - ' &#AAAAAADanh Vọng: &#FFC94D%points% &7(hạng &#FFD600#%rank%&7)'
+  - ' &#AAAAAAPvP trong bang: %pvp%'
+  - ' &#AAAAAAThành lập: &#FFFFFF%created%'
+  - ' &#AAAAAAMô tả: &#FFFFFF%description%'
+  - '&8&m                                        '
+
+list-header:
+  - '&#FFC700&lDANH SÁCH BANG HỘI &7(%count%) &7- trang %page%/%pages%'
+
+list-entry:
+  - ' &7%index%. %clan% &#55FF55%members%/%max_members% &#AAAAAAthành viên, &#FFC94D%points% Danh Vọng'
+
+top-header:
+  - '&#FFC700&lBẢNG XẾP HẠNG BANG HỘI'
+
+top-entry:
+  - ' &#FFD600#%rank% %clan% &7- &#FFC94D%points% Danh Vọng &7(Minh Chủ <gradient:#FFD600:#FF8C00>%leader%</gradient>&7)'
+
+list-empty:
+  - ' &7Chưa có bang hội nào.'

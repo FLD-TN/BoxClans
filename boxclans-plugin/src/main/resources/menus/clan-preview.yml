@@ -1,0 +1,89 @@
+# BoxClans — menus/clan-preview.yml: xem một bang hội
+# Layout: X = thành viên, I = thông tin bang hội (cờ), J = vào bang (chỉ khi được mời), P / N = trang,
+# B = quay lại, S = sắp xếp, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 3
+
+title: 'Xem bang hội | %clan%'
+rows: 6
+
+layout:
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - '.........'
+  - 'IJ.PBN.S.'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+member-item:
+  material: PLAYER_HEAD
+  name-leader: '&#55FF55%player%'
+  name-online: '&#55FF55%player%'
+  name-other: '&#FF5555%player%'
+  lore:
+    - '&#AAAAAAVai trò: %role%'
+    - '&#AAAAAADanh Vọng đóng góp: &#FFC94D%score%'
+
+items:
+  I:
+    # Mã bang hội không hiện ở đây, chỉ hiện trong nội bộ bang hội
+    material: WHITE_BANNER
+    name: '%clan%'
+    lore:
+      - '&#AAAAAAMinh Chủ: <gradient:#FFD600:#FF8C00>%leader%</gradient>'
+      - '&#AAAAAAThành viên: &#55FF55%members%/%max_members%'
+      - '&#AAAAAADanh Vọng: &#FFC94D%score% &#AAAAAA(hạng &#FFD600#%rank%&#AAAAAA)'
+      - ''
+      - '&#AAAAAAMô tả:'
+      - '&#FFFFFF%description%'
+  # J có 4 trạng thái: có lời mời / chưa được mời / đã có bang hội / bang hội đầy
+  J:
+    material: WRITABLE_BOOK
+    name-can-join: '&#55FF55Vào bang hội'
+    name-cannot-join: '&#FF4127Không thể vào bang hội'
+    lore-can-join:
+      - '&#FFFFFFBạn được mời vào bang hội này.'
+      - '&#FFFFFFBấm để tham gia.'
+    lore-invite-only:
+      - '&#AAAAAAChỉ vào được khi được mời.'
+    lore-already-in-clan:
+      - '&#FF5555&l(!)&r&#FF5555 Bạn đã ở trong một bang hội.'
+    lore-clan-full:
+      - '&#FF5555&l(!)&r&#FF5555 Bang hội này đã đầy.'
+    glow-can-join: true
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+  S:
+    material: HOPPER
+    name: '&#55FFFFSắp xếp'
+    lore:
+      - '%sort_role%'
+      - '%sort_name%'
+      - '%sort_online%'
+      - '%sort_score%'
+
+sort-labels:
+  role: 'Vai trò'
+  name: 'Tên'
+  online: 'Online'
+  score: 'Danh Vọng'
+
+sort-active-prefix: '&#55FFFF• '
+sort-inactive-prefix: '&#FFFFFF• '
+empty-description: 'Chưa có mô tả.'
+unlimited: 'Không giới hạn'

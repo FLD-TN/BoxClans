@@ -1,0 +1,120 @@
+# BoxClans — menus/confirm.yml: màn hình xác nhận
+# Layout: C = xác nhận, D = huỷ, I = thông tin của hành động (info.<hành động>), . = ô trống (filler)
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 4
+
+title: 'Xác nhận | %action%'
+rows: 3
+
+layout:
+  - '.........'
+  - '..C.I.D..'
+  - '.........'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  C:
+    material: LIME_STAINED_GLASS_PANE
+    name: '&#00FF00Xác nhận'
+    lore: []
+  D:
+    material: RED_STAINED_GLASS_PANE
+    name: '&#FF4127Huỷ'
+    lore: []
+
+action-labels:
+  create: 'Tạo bang hội'
+  disband: 'Giải tán bang hội'
+  kick: 'Kick thành viên'
+  leave: 'Rời bang hội'
+  transfer-leader: 'Chuyển Minh Chủ'
+  swap-vice: 'Đổi Phó Bang'
+  shop-buy: 'Mua vật phẩm'
+  shop-buy-icon: 'Mua icon'
+  shop-remove: 'Xoá khỏi cửa hàng'
+  vault-boost-replace: 'Thay boost bang hội'
+  vault-boost-capped: 'Cộng thêm boost'
+
+# Ô I theo từng hành động. Placeholder: %clan% %key% %player% %old% %limit% %excess% %size%
+# Mua: %item% %price% %balance% %after% %limit% %left%. Boost: %item% %multiplier% %old% %remaining% %lost%
+info:
+  create:
+    material: WHITE_BANNER
+    name: '%clan%'
+    lore:
+      - '&#AAAAAAMã bang hội: &b%key%'
+      - ''
+      - '&#FFFFFFĐây là tên bang hội sẽ hiện ở mọi nơi.'
+      - '&#55FF55Bấm xác nhận để tạo bang hội'
+  disband:
+    material: TNT
+    name: '&#FF4127Giải tán %clan%'
+    lore:
+      - '&#FF5555&l(!)&r&#FF5555 Toàn bộ thành viên và Danh Vọng'
+      - '&#FF5555&l(!)&r&#FF5555 của bang hội sẽ mất vĩnh viễn!'
+  kick:
+    material: PLAYER_HEAD
+    name: '&#FFAA00%player%'
+    lore:
+      - '&#FFFFFFKick &#FFAA00%player% &#FFFFFFkhỏi bang hội?'
+  leave:
+    material: OAK_DOOR
+    name: '&#FF4127Rời %clan%'
+    lore:
+      - '&#FFFFFFBạn sẽ rời bang hội %clan%&#FFFFFF.'
+  transfer-leader:
+    material: PLAYER_HEAD
+    name: '&#FFAA00%player%'
+    lore:
+      - '&#FFAA00%player% &#FFFFFFsẽ trở thành <gradient:#FFD600:#FF8C00>Minh Chủ</gradient>&#FFFFFF.'
+      - '&#FFFFFFBạn sẽ trở về &#7CFC7CThành Viên&#FFFFFF.'
+    # Thêm vào khi Minh Chủ mới có giới hạn thấp hơn số thành viên hiện tại (§6)
+    over-limit:
+      - ''
+      - '&#FF5555&l(!)&r&#FF5555 Minh Chủ mới chỉ được &#FFFFFF%limit% &#FF5555thành viên.'
+      - '&#FF5555&l(!)&r&#FF5555 &#FFFFFF%excess% &#FF5555người sẽ bị kick &lngẫu nhiên&r&#FF5555!'
+      - '&#AAAAAA(không bao giờ kick Minh Chủ cũ và mới)'
+  swap-vice:
+    material: PLAYER_HEAD
+    name: '&#FFAA00%player%'
+    lore:
+      - '&#FFAA00%player% &#FFFFFFsẽ lên &#5CD6FFPhó Bang&#FFFFFF.'
+      - '&#FF5555&l(!)&r&#FF5555 &#FFAA00%old% &#FF5555sẽ trở về &#7CFC7CThành Viên&#FF5555.'
+  shop-buy:
+    name: '%item%'
+    lore:
+      - '&#AAAAAAGiá: &#C77DFF%price% Minh Huy'
+      - '&#AAAAAASố dư sau khi mua: &#C77DFF%after%'
+      - ''
+      - '&#FFFFFFVật phẩm vào Kho bang hội.'
+      - '&#55FF55Bấm xác nhận để mua'
+  shop-buy-icon:
+    name: '%item%'
+    lore:
+      - '&#AAAAAAGiá: &#C77DFF%price% Minh Huy'
+      - '&#AAAAAASố dư sau khi mua: &#C77DFF%after%'
+      - ''
+      - '&#FFFFFFTrang bị tại Cài đặt'
+      - '&#FFFFFF> Icon bang hội.'
+      - '&#55FF55Bấm xác nhận để mua'
+  shop-remove:
+    name: '&#FF4127Xoá mục #%id%'
+    lore:
+      - '&#FFFFFFXoá khỏi cửa hàng.'
+      - '&#AAAAAAĐồ đã mua trong kho'
+      - '&#AAAAAAvẫn giữ nguyên.'
+  vault-boost-replace:
+    name: '%item%'
+    lore:
+      - '&#FF5555&l(!)&r&#FF5555 Thay boost x%old% đang chạy'
+      - '&#FF5555(còn %remaining%) bằng x%multiplier%.'
+      - '&#FF5555Thời gian còn lại sẽ mất.'
+  vault-boost-capped:
+    name: '%item%'
+    lore:
+      - '&#FF5555&l(!)&r&#FF5555 Chỉ cộng được tới tối đa,'
+      - '&#FF5555phần dư %lost% sẽ mất.'

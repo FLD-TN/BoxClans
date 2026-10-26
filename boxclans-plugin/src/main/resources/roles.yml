@@ -1,0 +1,40 @@
+# BoxClans — roles.yml (§4A)
+# Khoá role (MinhChu, PhoBang, ThanhVien) cố định, dùng trong lệnh và cho plugin khác.
+# Quyền có thể cấp cho PhoBang / ThanhVien:
+#   INVITE_MEMBERS, KICK_MEMBERS, RENAME_CLAN, SET_DESCRIPTION, EDIT_FLAG, MODIFY_FRIENDLY_FIRE, USE_CLAN_CHAT
+# Minh Chủ luôn có toàn quyền. Đổi role, chuyển Minh Chủ và giải tán luôn chỉ Minh Chủ làm được.
+# PhoBang có KICK_MEMBERS chỉ kick được Thành Viên.
+# color = màu vai trò trong chat bang hội và placeholder; gui-color = màu vai trò trong các menu và thông báo
+# (không có gui-color thì dùng color). gui-color nhận mã màu (&c, &#FF5C5C) hoặc gradient '<gradient:#FFD600:#FF8C00>'.
+
+roles:
+  MinhChu:
+    display: 'Minh Chủ'
+    color: '&c'
+    gui-color: '<gradient:#FFD600:#FF8C00>'
+    description:
+      - '&#FFFFFFToàn quyền bang hội.'
+  PhoBang:
+    display: 'Phó Bang'
+    color: '&b'
+    gui-color: '&#5CD6FF'
+    max: 1
+    permissions:
+      - INVITE_MEMBERS
+      - KICK_MEMBERS
+      - SET_DESCRIPTION
+      - EDIT_FLAG
+      - MODIFY_FRIENDLY_FIRE
+      - USE_CLAN_CHAT
+    description:
+      - '&#FFFFFFMời và kick Thành Viên,'
+      - '&#FFFFFFchỉnh mô tả, flag, PvP trong bang.'
+  ThanhVien:
+    display: 'Thành Viên'
+    color: '&a'
+    gui-color: '&#7CFC7C'
+    permissions:
+      - USE_CLAN_CHAT
+    description:
+      - '&#FFFFFFDùng chat bang hội.'
+      - '&#FFFFFF(Role mặc định)'

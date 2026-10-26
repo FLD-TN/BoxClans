@@ -1,0 +1,86 @@
+# BoxClans — points.yml: Danh Vọng của bang hội (§5). Trong file và lệnh vẫn gọi là 'points'.
+# Mỗi cách kiếm điểm là một NGUỒN. Thêm nguồn mới chỉ cần thêm một mục, plugin khác gọi theo id:
+#   API:   ClanPoints.award(player, "<id>") / awardClan(clanUuid, "<id>")
+#   Lệnh:  /clanadmin points give <người chơi> <id> [số] [-s]   (hoặc /clanadmin danhvong ...)
+#
+# Khoá của một nguồn:
+#   points          số điểm mỗi lần (âm = trừ)
+#   enabled         true / false: tắt nguồn mà không xoá (mặc định true)
+#   display         tên hiện trong thông báo, sổ điểm, lore "Danh Vọng" (mặc định = id)
+#   every           gom N lần mới cộng điểm một lần, đếm trong RAM (mặc định 1)
+#   cooldown        số giây giữa hai lần cộng cho cùng một người chơi (mặc định 0)
+#   daily-cap       điểm tối đa MỖI NGƯỜI mỗi ngày từ nguồn này (0 = không giới hạn)
+#   clan-daily-cap  điểm tối đa MỖI CLAN mỗi ngày từ nguồn này (0 = không giới hạn); gần chạm trần thì cắt cho vừa
+#   boost           nhân theo boxcore-boost-type (chỉ điểm dương) (mặc định false)
+#   contribution    cộng vào điểm đóng góp của người chơi (mặc định true)
+#   announce        báo cho thành viên clan đang online (mặc định true)
+#   lore            dòng hiện trong lore "Danh Vọng" (bỏ trống = tự sinh, '' = ẩn) — xem menus/settings.yml
+
+config-version: 1
+
+# Điểm clan có được âm không
+allow-negative: false
+# Nhân điểm DƯƠNG của nguồn có 'boost: true' theo boost của BoxCore (ví dụ 'clan'); '' = tắt
+boxcore-boost-type: ''
+# Mốc 0h cho mọi giới hạn theo ngày
+day-reset-timezone: 'Asia/Ho_Chi_Minh'
+# Số ngày giữ sổ điểm (points_log); 0 = giữ mãi
+log-keep-days: 30
+
+sources:
+  # --- PvP (luật riêng: §5.2, §5.3, §7) ---
+  kill:
+    points: 10
+    clan-daily-cap: 500
+    display: 'Hạ gục người chơi'
+  death:
+    points: 0                  # 0 = chết không trừ điểm
+    display: 'Bị hạ gục'
+    lore: '&#AAAAAA- &#FFFFFF%display% &#AAAAAAkhông bị trừ Danh Vọng'   # đổi dòng này nếu đặt points âm
+  # --- BoxKOTH gọi qua API ---
+  koth-top1:
+    points: 50
+    display: 'KOTH top 1'
+    lore: '&#AAAAAA- &#FFFFFFKOTH top 1 / 2 / 3 &#00FF00+%points% / +%points_koth-top2% / +%points_koth-top3%'
+  koth-top2:
+    points: 30
+    display: 'KOTH top 2'
+    lore: ''
+  koth-top3:
+    points: 15
+    display: 'KOTH top 3'
+    lore: ''
+  # --- Staff / event ---
+  clan-war-win:
+    points: 100
+    display: 'Thắng Clan War'
+  event:
+    points: 0                  # staff tự nhập số điểm
+    display: 'Event'
+    lore: ''
+  # --- BoxQuest: số điểm do từng quest quyết định ---
+  quest:
+    points: 0
+    display: 'Hoàn thành nhiệm vụ'
+    lore: '&#AAAAAA- &#FFFFFF%display% &#00FF00tuỳ nhiệm vụ'
+  # --- Cho tương lai (CataMines) ---
+  mine-block:
+    points: 1
+    every: 100
+    display: 'Đào 100 block trong mine'
+    boost: true
+    enabled: false
+
+# Sự kiện kill (§5.4): chưa có sự kiện nào chạy sẵn. Bật bằng /clanadmin killevent start <profile> <thời gian>
+# hoặc API ClanPoints.startKillEvent(profile, duration).
+#   kill / death              điểm khi hạ gục / khi bị hạ gục (âm = trừ)
+#   ignore-limits             bỏ luật C (3 kill / 10 phút) VÀ trần điểm clan / ngày
+#   ignore-pair-limit         chỉ bỏ luật C
+#   ignore-clan-daily-cap     chỉ bỏ trần clan / ngày
+# Luật A (cùng IP) và B (một mạng nhiều acc) luôn áp dụng. Điểm trong sự kiện không tính vào bộ đếm trần ngày.
+kill-events:
+  loan-chien:
+    display: '&#FF4127&lLOẠN CHIẾN'
+    kill: 10
+    death: -5
+    ignore-limits: true

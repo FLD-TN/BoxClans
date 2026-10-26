@@ -1,0 +1,160 @@
+# BoxClans — menus/clan-detail.yml: menu chính của bang hội (/clan)
+# Layout: X = danh sách (thành viên hoặc lời mời đang chờ), L = danh sách bang hội, I = thông tin bang hội (cờ),
+# A = cài đặt, H = cửa hàng bang hội, K = kho bang hội, G = lịch sử bang hội,
+# S = sắp xếp, F = đổi chế độ xem, . = ô trống
+# Menu chỉ có 1 trang: 45 ô X hiện tối đa 45 thành viên theo kiểu sắp xếp đang chọn.
+
+# Không sửa dòng này. Khi bản mới của plugin có text-version cao hơn, file này được chuyển vào
+# old-configs/ và thay bằng bản mới (để cập nhật chữ). Sửa xong muốn giữ thì đừng hạ số này.
+text-version: 9
+
+title: '%view% | %clan%'
+rows: 6
+
+layout:
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'XXXXXXXXX'
+  - 'HKA.I.GSL'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Đầu thành viên. %player% %role% (có màu) %score% (Danh Vọng đóng góp) %status_color% %you_tag% %last_seen%
+member-item:
+  material: PLAYER_HEAD
+  name: '%status_color%%player% %you_tag%'
+  lore:
+    - '&#AAAAAAVai trò: %role%'
+    - '&#AAAAAADanh Vọng đóng góp: &#FFC94D%score%'
+    - '&#AAAAAAOnline lần cuối: %last_seen%'
+  # Thêm vào lore khi người xem là Minh Chủ
+  lore-leader:
+    - ''
+    - '&#AAAAAAChuột trái: &#5CD6FFLên Phó Bang'
+    - '&#AAAAAAChuột phải: &#7CFC7CVề Thành Viên'
+    - '&#AAAAAAShift + chuột trái: &#FF5C5CChuyển Minh Chủ'
+    - '&#AAAAAAShift + chuột phải: &#FF5555Kick'
+  # Thêm vào lore khi người xem có quyền kick người này (không phải Minh Chủ)
+  lore-kick:
+    - ''
+    - '&#AAAAAAShift + chuột phải: &#FF5555Kick'
+status-online: '&#55FF55'
+status-offline: '&#AAAAAA'
+you-tag: '&#FFFFFF(bạn)'
+# %last_seen% trong lore của member-item. %time% = thời gian đã offline (tối đa 2 đơn vị, ví dụ 3 ngày 4 giờ)
+last-seen-online: '&#55FF55Đang online'
+last-seen-ago: '&#FFFFFF%time% trước'
+# Thành viên chưa từng vào lại server từ khi có tính năng này, và server cũng không có dữ liệu của họ
+last-seen-unknown: '&#AAAAAAChưa rõ'
+
+# Ô trống trong chế độ xem thành viên (người có quyền mời)
+empty-slot:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&#FFAA00Mời người chơi'
+  lore:
+    - '&#AAAAAABấm để mời người chơi'
+
+# Lời mời đã gửi (chế độ xem Lời mời đang chờ). %player% %inviter% %expiry%
+pending-item:
+  material: PLAYER_HEAD
+  name: '&#FFAA00%player%'
+  lore:
+    - '&#AAAAAANgười mời: &#FFFFFF%inviter%'
+    - '&#AAAAAAHết hạn sau: &#FFFFFF%expiry%'
+  lore-cancel:
+    - ''
+    - '&#FF5555Bấm để huỷ lời mời'
+
+items:
+  L:
+    material: SPYGLASS
+    name: '&#FFD600Danh sách bang hội'
+    lore:
+      - '&#FFFFFFXem các bang hội khác'
+  I:
+    # material được thay bằng cờ của bang hội (flag.default-material trong config.yml nếu chưa có cờ)
+    # Mã bang hội và Minh Huy chỉ hiện ở đây (nội bộ bang hội). %minhhuy% = số dư Minh Huy (1.250)
+    material: WHITE_BANNER
+    name: '%clan%'
+    # %description_lines% = mô tả, tự xuống dòng mỗi description-wrap ký tự (màu description-color)
+    lore:
+      - '&#AAAAAAMã bang hội: &b%key%'
+      - ''
+      - '&#AAAAAAMô tả:'
+      - '%description_lines%'
+      - ''
+      - '&#AAAAAAMinh Chủ: <gradient:#FFD600:#FF8C00>%leader%</gradient>'
+      - '&#AAAAAAThành viên: %members_color%%members%/%max_members%'
+      - '&#AAAAAADanh Vọng: &#FFC94D%score% &#AAAAAA(hạng &#FFD600#%rank%&#AAAAAA)'
+      - '&#AAAAAAMinh Huy: &#C77DFF%minhhuy%'
+      - '&#AAAAAAPvP trong bang: %pvp%'
+  A:
+    material: FEATHER
+    name: '&#55FF55Cài đặt bang hội'
+    lore:
+      - '&#FFFFFFCác tuỳ chọn của bang hội'
+  H:
+    material: EMERALD
+    name: '&#55FF55Cửa hàng bang hội'
+    lore:
+      - '&#FFFFFFMua vật phẩm cho bang hội'
+  K:
+    material: BARREL
+    name: '&#C77DFFKho bang hội'
+    lore:
+      - '&#FFFFFFVật phẩm bang hội đã mua'
+      - '&#FFFFFFhoặc được tặng.'
+  G:
+    material: WRITABLE_BOOK
+    name: '&#FFD600Lịch sử bang hội'
+    lore:
+      - '&#FFFFFFXem các hoạt động của bang hội'
+      - '&#FFFFFFtrong 30 ngày gần nhất.'
+  S:
+    material: HOPPER
+    name: '&#55FFFFSắp xếp'
+    lore:
+      - '%sort_role%'
+      - '%sort_name%'
+      - '%sort_online%'
+      - '%sort_score%'
+  F:
+    material: COMPASS
+    name: '&#FFD600Đổi chế độ xem'
+    lore:
+      - '%view_members%'
+      - '%view_pending%'
+
+view-title-labels:
+  members: 'Thành viên'
+  pending: 'Lời mời đang chờ'
+
+sort-active-prefix: '&#55FFFF• '
+sort-inactive-prefix: '&#FFFFFF• '
+view-active-prefix: '&#FFD600• '
+view-inactive-prefix: '&#FFFFFF• '
+
+sort-labels:
+  role: 'Vai trò'
+  name: 'Tên'
+  online: 'Online'
+  score: 'Danh Vọng'
+
+view-labels:
+  members: 'Thành viên'
+  pending: 'Lời mời đang chờ'
+
+empty-description: 'Chưa có mô tả.'
+# %description_lines%: số ký tự tối đa mỗi dòng và màu chữ
+description-wrap: 30
+description-color: '&#FFFFFF'
+# Màu số thành viên X/X: bình thường xanh lá, khi đã đầy thì đỏ để cảnh báo
+members-color-full: '&#FF5555'
+members-color-normal: '&#55FF55'
+pvp-on: '&#FF5555Bật'
+pvp-off: '&#55FF55Tắt'
+unlimited: 'Không giới hạn'

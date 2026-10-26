@@ -1,0 +1,130 @@
+# BoxClans — menus/clan-shop.yml: Cửa hàng bang hội (/clan shop, nút H của menu chính)
+# Layout: T = tab (Tất cả rồi các danh mục của shop.yml, theo thứ tự), U = ô đánh dấu dưới tab (lime = đang xem),
+# M = tài chính bang hội (Minh Huy), X = vật phẩm bán, P / N = trang trước / sau, B = quay lại,
+# E = chỉnh sửa (chỉ người có quyền boxclans.admin.shop), . = ô trống
+# Chỉ Minh Chủ và Phó Bang mua được; thành viên khác chỉ xem. Mua xong vật phẩm vào Kho, icon vào Cài đặt > Icon.
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 4
+
+title: 'Cửa hàng bang hội'
+rows: 6
+
+layout:
+  - '.TTTTTTT.'
+  - '.UUUUUUU.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - 'B..PMN..E'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Tab "Tất cả" (các tab khác lấy tên và item từ shop.yml)
+tab-all:
+  name: '&#FFFFFFTất cả'
+  material: NETHER_STAR
+# Mọi tab. %tab% tên tab, %state% dòng trạng thái
+tab-item:
+  name: '%tab%'
+  lore:
+    - '%state%'
+tab-selected: '&#55FF55Đang xem'
+tab-other: '&#AAAAAABấm để xem'
+
+# 1.4.3: dòng U dưới các tab. Ô dưới tab đang xem dùng tab-marker-selected (xanh lime), các ô khác dùng tab-marker.
+# Bấm vào ô này cũng mở tab phía trên nó.
+tab-marker:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+tab-marker-selected:
+  material: LIME_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  M:
+    material: AMETHYST_SHARD
+    name: '&#C77DFFTài chính bang hội'
+    lore:
+      - ' &7• Minh Huy: &#C77DFF%balance%'
+      - ''
+      - ' &7• Tiền tệ chung của bang hội'
+      - ' &7Chỉ có thể kiếm từ sự kiện, KOTH...'
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+  E:
+    material: WRITABLE_BOOK
+    name: '&#FF55FFChỉnh sửa cửa hàng'
+    # %state% = edit-on / edit-off
+    lore:
+      - '%state%'
+      - ''
+      - '&#AAAAAAKhi bật: bấm vật phẩm để sửa,'
+      - '&#AAAAAAbấm ô trống (trong một danh mục)'
+      - '&#AAAAAAvới item trên con trỏ để thêm.'
+edit-on: '&#55FF55Đang bật'
+edit-off: '&#AAAAAAĐang tắt'
+
+# Ô trống khi đang chỉnh sửa, trong một danh mục vật phẩm
+add-slot:
+  material: LIME_STAINED_GLASS_PANE
+  name: '&#55FF55Thêm vật phẩm'
+  lore:
+    - '&#FFFFFFCầm item trên con trỏ rồi bấm'
+    - '&#FFFFFFvào ô này, sau đó nhập giá.'
+
+# Vật phẩm bán: giữ nguyên tên và lore của item, thêm các dòng dưới đây.
+# %price% %limit% %bought% (đã mua tuần này) %state% %id% %mode% %commands% %hidden% %category%
+entry-item:
+  lore:
+    - ''
+    - '&#AAAAAAGiá: &#C77DFF%price% Minh Huy'
+  # Thêm khi có giới hạn tuần
+  lore-limit:
+    - '&#AAAAAATuần này: &#FFFFFF%bought%/%limit%'
+  lore-state:
+    - '%state%'
+  # Thay cho lore-state khi đang chỉnh sửa
+  lore-edit:
+    - ''
+    - '&#FF55FFMục #%id% &#AAAAAA(%category%&#AAAAAA)'
+    - '&#AAAAAAKiểu: %mode% &#AAAAAA- lệnh: %commands%'
+    - '&#AAAAAAẨn: %hidden%'
+    - '&#FFFFFFBấm để sửa'
+mode-item: '&#FFFFFFVật phẩm'
+mode-command: '&#FFD600Chạy lệnh'
+hidden-yes: '&#FF5555Có'
+hidden-no: '&#55FF55Không'
+
+state-buy: '&#55FF55Bấm để mua'
+state-poor: '&#FF5555Không đủ Minh Huy'
+state-limit: '&#FF5555Đã hết lượt mua tuần này'
+state-member: '&#AAAAAAChỉ Minh Chủ và Phó Bang được mua'
+
+# Icon khiên (lấy từ icons.yml, icon không default-owned). %display% %icon_static% %clan% %price% %state%
+icon-item:
+  name: '%display%'
+  lore:
+    - '&#AAAAAAXem trước: %icon_static%%clan%'
+    - '&#AAAAAAGiá: %price%'
+    - ''
+    - '%state%'
+icon-state-owned: '&#55FF55Đã sở hữu &#AAAAAA- trang bị trong Cài đặt'
+icon-state-free: '&#55FF55Bấm để nhận miễn phí'
+# %permission%
+icon-state-locked: '&#FF5555Cần quyền &e%permission%'
+price-free: '&#55FF55Miễn phí'
+# %amount% = giá
+price-format: '&#C77DFF%amount% Minh Huy'

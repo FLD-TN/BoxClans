@@ -1,0 +1,29 @@
+# BoxClans — perks.yml (§6)
+# Số thành viên tối đa chỉ phụ thuộc permission của Minh Chủ (lấy số lớn nhất, -1 = không giới hạn).
+# Cách đơn giản nhất: gán thẳng SỐ vào permission, không cần khai báo ở đây:
+#   lp group vip permission set boxclans.members.20      (tối đa 20 thành viên)
+#   lp user Steve permission set boxclans.members.35
+# Lấy số lớn nhất trong các permission boxclans.members.<số> (không thấp hơn default-max-members).
+# Danh sách bên dưới vẫn dùng được song song (tên bậc: boxclans.members.vip...), cái nào lớn hơn thì thắng.
+# Gán bằng LuckPerms, ví dụ: lp group vip permission set boxclans.members.vip
+
+default-max-members: 8
+member-limits:
+  - permission: boxclans.members.vip
+    amount: 12
+  - permission: boxclans.members.mvp
+    amount: 16
+  - permission: boxclans.members.legend
+    amount: 24
+  - permission: boxclans.members.unlimited
+    amount: -1
+
+# Số lớp hoa văn tối đa của clan flag, theo permission của người chỉnh flag
+default-banner-patterns: 6
+banner-patterns:
+  - permission: boxclans.banner.6
+    amount: 6
+  - permission: boxclans.banner.12
+    amount: 12
+  - permission: boxclans.banner.16
+    amount: 16

@@ -1,0 +1,31 @@
+# BoxClans — shop.yml: danh mục của Cửa hàng bang hội và Kho bang hội
+# File này do chủ server sửa, plugin không bao giờ ghi vào. Sửa xong: /clanadmin reload.
+# Vật phẩm bán (trừ icon) được thêm trong game: nút "Chỉnh sửa" trong cửa hàng (quyền boxclans.admin.shop)
+# hoặc /clanadmin shop add <danh mục> <giá> [giới hạn tuần] khi cầm item trên tay.
+
+# Danh mục, theo thứ tự tab (trước chúng luôn có tab "Tất cả").
+#   name      tên tab
+#   material  item của tab
+#   icons     true = danh mục icon khiên (lấy từ icons.yml, không thêm vật phẩm vào được)
+# Xoá một danh mục thì vật phẩm của nó chuyển sang "khac". Menu có 4 ô tab sau "Tất cả": danh mục thứ 5 trở đi
+# chỉ xem được trong tab "Tất cả" (muốn thêm tab thì sửa layout của menus/clan-shop.yml và menus/clan-vault.yml).
+categories:
+  icon:
+    name: '&#FFAA00Icon bang hội'
+    material: SHIELD
+    icons: true
+  boost:
+    name: '&#55FFFFBoost bang hội'
+    material: HONEY_BOTTLE
+  key:
+    name: '&#FFD600Key'
+    material: TRIPWIRE_HOOK
+  khac:
+    name: '&#AAAAAAKhác'
+    material: CHEST
+
+# Giới hạn mua mỗi tuần (của từng vật phẩm, tính cho từng bang hội) được làm mới lúc:
+weekly-reset:
+  day: MONDAY          # MONDAY ... SUNDAY
+  time: '00:00'
+  timezone: 'Asia/Ho_Chi_Minh'

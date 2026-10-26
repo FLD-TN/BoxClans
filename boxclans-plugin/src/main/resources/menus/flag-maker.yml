@@ -1,0 +1,134 @@
+# BoxClans — menus/flag-maker.yml: thiết kế cờ bang hội (chỉ làm icon, không bao giờ vào túi đồ)
+# 5 hàng trên: chọn màu nền / màu hoa văn / hoa văn. Hàng cuối: các nút điều khiển (slot cố định 45-53).
+# Số lớp hoa văn tối đa theo permission trong perks.yml (banner-patterns).
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 2
+
+title: 'Thiết kế cờ bang hội'
+rows: 6
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Chọn màu nền (khi chưa có nền, sau khi reset, hoặc bấm vào ô xem trước)
+base-color-item:
+  name: '&#FFFFFF%color_name%'
+  lore:
+    - '&#AAAAAABấm để chọn màu nền'
+
+color-picker-item:
+  name: '&#FFFFFF%color_name%'
+  name-selected: '&#55FF55%color_name%'
+  lore:
+    - '&#AAAAAABấm để chọn'
+  lore-selected:
+    - '&#55FF55Đang chọn'
+
+pattern-item:
+  name: '&#FFFFFFThêm hoa văn'
+  lore:
+    - '&#AAAAAA%color_name% %pattern_name%'
+    - '&#AAAAAALớp: &#FFFFFF%layers%&#AAAAAA/&#FFFFFF%max_layers%'
+
+color-labels:
+  white: 'Trắng'
+  orange: 'Cam'
+  magenta: 'Đỏ tươi'
+  light_blue: 'Xanh nhạt'
+  yellow: 'Vàng'
+  lime: 'Xanh chanh'
+  pink: 'Hồng'
+  gray: 'Xám'
+  light_gray: 'Xám nhạt'
+  cyan: 'Lục lam'
+  purple: 'Tím'
+  blue: 'Xanh dương'
+  brown: 'Nâu'
+  green: 'Xanh lá'
+  red: 'Đỏ'
+  black: 'Đen'
+
+# Tên hoa văn (khoá = tên trong game). Hoa văn không có ở đây thì dùng tên trong game.
+pattern-labels:
+  border: 'Viền'
+  bricks: 'Gạch'
+  circle: 'Hình tròn'
+  creeper: 'Creeper'
+  cross: 'Chéo chữ X'
+  curly_border: 'Viền răng cưa'
+  diagonal_left: 'Chéo trái'
+  diagonal_right: 'Chéo phải'
+  diagonal_up_left: 'Chéo trên trái'
+  diagonal_up_right: 'Chéo trên phải'
+  flow: 'Dòng chảy'
+  flower: 'Bông hoa'
+  globe: 'Quả cầu'
+  gradient: 'Chuyển màu'
+  gradient_up: 'Chuyển màu từ dưới'
+  guster: 'Luồng gió'
+  half_horizontal: 'Nửa trên'
+  half_horizontal_bottom: 'Nửa dưới'
+  half_vertical: 'Nửa trái'
+  half_vertical_right: 'Nửa phải'
+  mojang: 'Mojang'
+  piglin: 'Mõm Piglin'
+  rhombus: 'Hình thoi'
+  skull: 'Đầu lâu'
+  small_stripes: 'Sọc nhỏ'
+  square_bottom_left: 'Góc dưới trái'
+  square_bottom_right: 'Góc dưới phải'
+  square_top_left: 'Góc trên trái'
+  square_top_right: 'Góc trên phải'
+  straight_cross: 'Chữ thập'
+  stripe_bottom: 'Sọc dưới'
+  stripe_center: 'Sọc dọc giữa'
+  stripe_downleft: 'Sọc chéo trái'
+  stripe_downright: 'Sọc chéo phải'
+  stripe_left: 'Sọc trái'
+  stripe_middle: 'Sọc ngang giữa'
+  stripe_right: 'Sọc phải'
+  stripe_top: 'Sọc trên'
+  triangle_bottom: 'Tam giác dưới'
+  triangle_top: 'Tam giác trên'
+  triangles_bottom: 'Răng cưa dưới'
+  triangles_top: 'Răng cưa trên'
+
+controls:
+  flag-preview:
+    slot: 45
+    material: ORANGE_BANNER
+    name: '&#FFA500Xem trước cờ'
+    lore:
+      - '&#AAAAAALớp: &#FFFFFF%layers%&#AAAAAA/&#FFFFFF%max_layers%'
+      - '&#AAAAAABấm để đổi màu nền'
+  change-pattern-color:
+    slot: 46
+    material: PINK_DYE
+    name: '&#FFFFFFĐổi màu hoa văn'
+    lore:
+      - '&#AAAAAAMàu hoa văn đang chọn: &#FFFFFF%color_name%'
+  back:
+    slot: 49
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+  undo:
+    slot: 51
+    material: ORANGE_STAINED_GLASS_PANE
+    name: '&#FFAA00Hoàn tác'
+    lore:
+      - '&#FFFFFFHoàn tác thay đổi gần nhất'
+  reset:
+    slot: 52
+    material: RED_STAINED_GLASS_PANE
+    name: '&#FF4127Làm lại'
+    lore:
+      - '&#FFFFFFLàm lại cờ từ đầu'
+  save:
+    slot: 53
+    material: LIME_STAINED_GLASS_PANE
+    name: '&#00FF00Lưu'
+    lore:
+      - '&#FFFFFFLưu làm cờ bang hội'

@@ -1,0 +1,57 @@
+name: BoxClans
+version: '${version}'
+main: com.dex.boxclans.BoxClansPlugin
+api-version: '1.21'
+author: Dex
+description: Clan plugin for the BoxPvP server (clans, roles, clan chat, clan points)
+softdepend: [PlaceholderAPI, BoxCore, LuckPerms, ItemsAdder]
+
+commands:
+  clan:
+    description: Bang hội
+    usage: /clan help
+    aliases: [clans, c]
+  cc:
+    description: Chat bang hội
+    usage: /cc [tin nhắn]
+  clanadmin:
+    description: Quản trị bang hội
+    usage: /clanadmin help
+    aliases: [clansadmin, ca]
+
+permissions:
+  boxclans.use:
+    description: /clan
+    default: true
+  boxclans.create:
+    description: Tạo clan
+    default: true
+  boxclans.chat:
+    description: Chat bang hội (/cc, phím tắt !)
+    default: true
+  boxclans.spy:
+    description: Xem chat của mọi bang (/clanadmin spy)
+    default: op
+  boxclans.rename.bypasscooldown:
+    description: Đổi tên clan không chờ cooldown
+    default: op
+  boxclans.admin.antialt:
+    description: Nhận cảnh báo chống farm kill (luật A / B)
+    default: op
+  boxclans.antialt.bypass:
+    description: Không bị luật chống farm kill chặn
+    default: false
+  boxclans.admin.shop:
+    description: Nút Chỉnh sửa trong Cửa hàng bang hội (thêm / sửa vật phẩm bán)
+    default: op
+  boxclans.admin:
+    description: Mọi lệnh /clanadmin
+    default: op
+    children:
+      boxclans.admin.shop: true
+      boxclans.use: true
+      boxclans.create: true
+      boxclans.chat: true
+      boxclans.spy: true
+      boxclans.admin.antialt: true
+  # boxclans.members.* và boxclans.banner.* nằm trong perks.yml, không cần khai báo

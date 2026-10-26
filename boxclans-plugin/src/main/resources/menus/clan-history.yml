@@ -1,0 +1,235 @@
+# BoxClans — menus/clan-history.yml: Lịch sử bang hội (nút G của menu chính, /clan lichsu)
+# Cả bang xem được (admin: /clanadmin history <mã>). Mới nhất trước. Lưu history.keep-days ngày.
+# Layout: T = tab lọc (Tất cả rồi từng nhóm), U = ô đánh dấu dưới tab (lime = đang xem), X = sự kiện,
+# P / N = trang, I = số trang, B = quay lại, . = ô trống
+
+# Không sửa dòng này (xem giải thích trong menus/clan-detail.yml)
+text-version: 4
+
+title: 'Lịch sử | %clan%'
+rows: 6
+
+layout:
+  - '.TTTTTTT.'
+  - '.UUUUUUU.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - '.XXXXXXX.'
+  - 'B..PIN...'
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+
+# Tab lọc. Nhóm: MEMBERS, MINHHUY, SHOP, VAULT, BOOST, CLAN
+tab-all:
+  name: '&#FFFFFFTất cả'
+  material: BOOK
+tabs:
+  MEMBERS:
+    name: '&#55FF55Thành viên'
+    material: PLAYER_HEAD
+  MINHHUY:
+    name: '&#C77DFFMinh Huy'
+    material: AMETHYST_SHARD
+  SHOP:
+    name: '&#55FF55Cửa hàng'
+    material: EMERALD
+  VAULT:
+    name: '&#C77DFFKho'
+    material: BARREL
+  BOOST:
+    name: '&#55FFFFBoost'
+    material: HONEY_BOTTLE
+  CLAN:
+    name: '&#FFAA00Bang hội'
+    material: WHITE_BANNER
+tab-item:
+  name: '%tab%'
+  lore:
+    - '%state%'
+tab-selected: '&#55FF55Đang xem'
+tab-other: '&#AAAAAABấm để lọc'
+
+# 1.4.3: dòng U dưới các tab. Ô dưới tab đang xem dùng tab-marker-selected (xanh lime), các ô khác dùng tab-marker.
+# Bấm vào ô này cũng mở tab phía trên nó.
+tab-marker:
+  material: GRAY_STAINED_GLASS_PANE
+  name: '&e'
+tab-marker-selected:
+  material: LIME_STAINED_GLASS_PANE
+  name: '&e'
+
+items:
+  P:
+    material: ARROW
+    name: '&#FFD600Trang trước'
+    lore: []
+  N:
+    material: ARROW
+    name: '&#FFD600Trang sau'
+    lore: []
+  I:
+    material: CLOCK
+    name: '&#FFFFFFTrang %page%/%pages%'
+    lore:
+      - '&#AAAAAA%count% sự kiện'
+  B:
+    material: BARRIER
+    name: '&#FF4127Quay lại'
+    lore: []
+
+loading:
+  material: CLOCK
+  name: '&#AAAAAAĐang tải...'
+empty:
+  material: LIGHT_GRAY_STAINED_GLASS_PANE
+  name: '&#AAAAAAChưa có sự kiện nào'
+
+# Mỗi sự kiện là một tờ giấy: tên và lore theo types.<LOẠI>, rồi lore-footer.
+# Dùng chung: %actor% người làm (trống = staff), %target% người bị tác động, %amount%, %detail%, %time%
+entry-item:
+  material: PAPER
+  lore-footer:
+    - ''
+    - '&#AAAAAAThời gian: &#FFFFFF%time%'
+
+# Người làm khi là lệnh admin / console
+staff: '&#FF55FFQuản trị viên'
+none: '&#AAAAAAKhông có'
+pvp-on: '&#FF5555bật'
+pvp-off: '&#55FF55tắt'
+leader-by-staff: '&#FF55FF(do quản trị viên chuyển)'
+
+types:
+  CREATE:
+    name: '&#FFAA00Lập bang hội'
+    lore:
+      - '&#AAAAAANgười lập: &#FFFFFF%actor%'
+      - '&#AAAAAATên: %name%'
+  JOIN:
+    name: '&#55FF55Thành viên mới'
+    lore:
+      - '&#AAAAAANgười chơi: &#FFFFFF%actor%'
+  LEAVE:
+    name: '&#FF5555Rời bang hội'
+    lore:
+      - '&#AAAAAANgười chơi: &#FFFFFF%actor%'
+  KICK:
+    name: '&#FF5555Bị kick'
+    lore:
+      - '&#AAAAAANgười bị kick: &#FFFFFF%target%'
+      - '&#AAAAAANgười kick: &#FFFFFF%actor%'
+  KICK_OVER_LIMIT:
+    name: '&#FF5555Bị loại do vượt giới hạn'
+    lore:
+      - '&#AAAAAANgười chơi: &#FFFFFF%target%'
+  ROLE:
+    name: '&#5CD6FFĐổi vai trò'
+    lore:
+      - '&#AAAAAANgười chơi: &#FFFFFF%target%'
+      - '&#AAAAAATừ %old% &#AAAAAAthành %new%'
+      - '&#AAAAAANgười đổi: &#FFFFFF%actor%'
+  LEADER:
+    name: '&#FF5C5CChuyển Minh Chủ'
+    lore:
+      - '&#AAAAAAMinh Chủ cũ: &#FFFFFF%actor%'
+      - '&#AAAAAAMinh Chủ mới: &#FFFFFF%target%'
+      - '%staff_line%'
+  RENAME:
+    name: '&#FFAA00Đổi tên bang hội'
+    lore:
+      - '&#AAAAAATên cũ: %old%'
+      - '&#AAAAAATên mới: %new%'
+      - '&#AAAAAANgười đổi: &#FFFFFF%actor%'
+  ICON:
+    name: '&#FFAA00Đổi icon'
+    lore:
+      - '&#AAAAAAIcon cũ: %old%'
+      - '&#AAAAAAIcon mới: %new%'
+      - '&#AAAAAANgười đổi: &#FFFFFF%actor%'
+  PVP:
+    name: '&#FFAA00PvP trong bang'
+    lore:
+      - '&#AAAAAAĐã %state%'
+      - '&#AAAAAANgười đổi: &#FFFFFF%actor%'
+  MINHHUY_ADD:
+    name: '&#C77DFFNhận Minh Huy'
+    lore:
+      - '&#C77DFF+%amount% Minh Huy'
+      - '&#AAAAAALý do: &#FFFFFF%detail%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  MINHHUY_TAKE:
+    name: '&#FF5555Bị trừ Minh Huy'
+    lore:
+      - '&#FF5555-%amount% Minh Huy'
+      - '&#AAAAAALý do: &#FFFFFF%detail%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  MINHHUY_SET:
+    name: '&#C77DFFĐặt Minh Huy'
+    lore:
+      - '&#AAAAAASố dư mới: &#C77DFF%amount%'
+      - '&#AAAAAALý do: &#FFFFFF%detail%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  MINHHUY_RESET:
+    name: '&#FF5555Minh Huy về 0'
+    lore:
+      - '&#AAAAAASố dư trước: &#C77DFF%amount%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  SHOP_BUY:
+    name: '&#55FF55Mua trong cửa hàng'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%detail%'
+      - '&#AAAAAAGiá: &#C77DFF%amount% Minh Huy'
+      - '&#AAAAAANgười mua: &#FFFFFF%actor%'
+  VAULT_WITHDRAW:
+    name: '&#C77DFFRút khỏi kho'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%detail%'
+      - '&#AAAAAANgười rút: &#FFFFFF%actor%'
+  VAULT_USE:
+    name: '&#C77DFFDùng từ kho'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%detail%'
+      - '&#AAAAAANgười dùng: &#FFFFFF%actor%'
+  VAULT_GIVE:
+    name: '&#55FF55Kho được tặng'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%amount% x %detail%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  VAULT_REMOVE:
+    name: '&#FF5555Lấy khỏi kho'
+    lore:
+      - '&#AAAAAAVật phẩm: &#FFFFFF%amount% x %detail%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  BOOST_START:
+    name: '&#55FFFFBật boost bang hội'
+    lore:
+      - '&#AAAAAABoost: &#FFFFFF%boost_type% x%multiplier%'
+      - '&#AAAAAAThời gian: &#FFFFFF%duration%'
+      - '&#AAAAAANgười bật: &#FFFFFF%actor%'
+  BOOST_EXTEND:
+    name: '&#55FFFFCộng thêm boost'
+    lore:
+      - '&#AAAAAABoost: &#FFFFFF%boost_type% x%multiplier%'
+      - '&#AAAAAAThêm: &#FFFFFF%duration%'
+      - '&#AAAAAANgười dùng: &#FFFFFF%actor%'
+  BOOST_REPLACE:
+    name: '&#55FFFFThay boost bang hội'
+    lore:
+      - '&#AAAAAABoost: &#FFFFFF%boost_type% x%old_multiplier% &#AAAAAAthành &#FFFFFFx%multiplier%'
+      - '&#AAAAAAThời gian: &#FFFFFF%duration%'
+      - '&#AAAAAANgười dùng: &#FFFFFF%actor%'
+  BOOST_STOP:
+    name: '&#FF5555Dừng boost bang hội'
+    lore:
+      - '&#AAAAAABoost: &#FFFFFF%boost_type% x%multiplier%'
+      - '&#AAAAAABởi: &#FFFFFF%actor%'
+  BOOST_END:
+    name: '&#AAAAAABoost bang hội hết hạn'
+    lore:
+      - '&#AAAAAABoost: &#FFFFFF%boost_type% x%multiplier%'
+  UNKNOWN:
+    name: '&#AAAAAA%type%'
+    lore:
+      - '&#AAAAAA%detail%'
