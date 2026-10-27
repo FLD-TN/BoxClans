@@ -310,7 +310,8 @@ class GuiTest {
                 "- Bị hạ gục không bị trừ Danh Vọng",
                 "- KOTH top 1 / 2 / 3 +50 / +30 / +15",
                 "- Thắng Clan War +100 Danh Vọng",
-                "- Hoàn thành nhiệm vụ tuỳ nhiệm vụ"), text);
+                "- Hoàn thành nhiệm vụ tuỳ nhiệm vụ",
+                "- Đánh boss tuỳ boss"), text);
         assertEquals(List.of("(!) Giết cùng một người quá 3 lần", "(!) trong 10 phút sẽ không được tính!"),
                 lines.warnings().stream().map(m -> Text.plain(Text.parse(m.value()))).toList());
         assertTrue(lines.killEvent().isEmpty());

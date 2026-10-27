@@ -63,6 +63,15 @@ sources:
     points: 0
     display: 'Hoàn thành nhiệm vụ'
     lore: '&#AAAAAA- &#FFFFFF%display% &#00FF00tuỳ nhiệm vụ'
+  # --- MyBoxMobs gọi qua API: số điểm do từng boss quyết định (GUI của MyBoxMobs) ---
+  mob-boss:
+    points: 0
+    display: 'Top bang hội đánh boss'
+    lore: '&#AAAAAA- &#FFFFFFĐánh boss &#00FF00tuỳ boss'
+  mob-kill:
+    points: 0
+    display: 'Hạ gục boss'
+    lore: ''
   # --- Cho tương lai (CataMines) ---
   mine-block:
     points: 1
