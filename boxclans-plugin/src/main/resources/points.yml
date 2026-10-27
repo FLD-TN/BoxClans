@@ -16,7 +16,8 @@
 #   announce        báo cho thành viên clan đang online (mặc định true)
 #   lore            dòng hiện trong lore "Danh Vọng" (bỏ trống = tự sinh, '' = ẩn) — xem menus/settings.yml
 
-config-version: 1
+# Không sửa. File cũ hơn được tự thêm các nguồn mới (giữ nguyên phần bạn đã sửa), bản cũ lưu ở old-configs/
+config-version: 2
 
 # Điểm clan có được âm không
 allow-negative: false

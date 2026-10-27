@@ -28,6 +28,7 @@ import com.dex.boxclans.points.KillProcessor;
 import com.dex.boxclans.points.KillRules;
 import com.dex.boxclans.points.PointsAnnouncer;
 import com.dex.boxclans.points.PointsConfig;
+import com.dex.boxclans.points.PointsMigration;
 import com.dex.boxclans.points.PointsService;
 import com.dex.boxclans.gui.Guis;
 import com.dex.boxclans.gui.Menu;
@@ -395,6 +396,7 @@ public final class BoxClansPlugin extends JavaPlugin {
             Sounds newSounds = Sounds.from(YamlFiles.load(this, Sounds.FILE), getLogger());
             RoleRegistry newRoles = RoleRegistry.from(YamlFiles.load(this, RoleRegistry.FILE), getLogger());
             Perks newPerks = Perks.from(YamlFiles.load(this, Perks.FILE));
+            PointsMigration.upgrade(this);
             PointsConfig newPoints = PointsConfig.from(YamlFiles.load(this, PointsConfig.FILE), getLogger());
             Icons newIcons = Icons.from(YamlFiles.loadText(this, Icons.FILE), getLogger());
             com.dex.boxclans.config.ShopConfig newShop = com.dex.boxclans.config.ShopConfig.from(

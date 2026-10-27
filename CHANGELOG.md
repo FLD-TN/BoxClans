@@ -3,6 +3,18 @@
 Mỗi phiên bản có file `boxclans-<cũ>-to-<mới>.diff` ở thư mục gốc `BoxClans/` (so với bản snapshot
 `.snapshot-<cũ>/`). Spec: `BOXCLANS_SHOP_SPEC.md`.
 
+## 1.4.5 (2026-10-27): Nguồn Danh Vọng cho boss MyBoxMobs
+
+- **2 nguồn mới trong `points.yml`**: `mob-boss` (top bang hội đánh boss) và `mob-kill` (bang của người hạ gục boss).
+  Số điểm do từng boss quyết định trong GUI của MyBoxMobs 0.7.0, `points: 0` ở đây. Lore "Danh Vọng" có thêm dòng
+  "Đánh boss tuỳ boss".
+- **`points.yml` tự cập nhật (`config-version: 2`)**: khi server còn file bản 1, plugin chép bản cũ sang
+  `old-configs/v1/points.yml` rồi chỉ chèn các nguồn còn thiếu (kèm comment) vào cuối mục `sources:`. Số điểm, comment
+  và nguồn riêng chủ server đã sửa đều giữ nguyên. Nguồn nào đã có thì không thêm lại; nguồn xoá đi sau khi đã lên bản
+  2 cũng không bị thêm lại.
+
+**Kiểm tra**: 179 test pass (`PointsMigrationTest` 3 test mới).
+
 ## 1.4.4 (2026-10-23): Rà soát lỗi / leak / mất dữ liệu
 
 - **Mua, rút, dùng không còn ghi dở dang**: trừ Minh Huy, thêm vào kho, đếm lượt mua tuần và lịch sử của một lần mua
