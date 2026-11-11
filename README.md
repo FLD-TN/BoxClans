@@ -1,7 +1,7 @@
 # BoxClans 1.0.0
 
 Plugin bang hội (clan) cho server BoxPvP, viết lại từ đầu thay cho `Clans.jar` (shyamstudio). Paper 1.21.1, Java 21.
-Chi tiết thiết kế: `BOXCLANS_SPEC.md`. Tích hợp với plugin khác: `INTEGRATION.md`.
+Tích hợp với plugin khác: `INTEGRATION.md`.
 
 ## Cài đặt
 
@@ -135,16 +135,15 @@ tên không lan sang chữ phía sau; chữ phía sau nên tự có mã màu (v�
 
 Hai placeholder icon trả về `§f` + icon + **1 khoảng trắng**, và trả về **rỗng hoàn toàn** khi clan chưa có icon (không dùng
 `none-value`). Vì vậy viết liền: `[%boxclans_icon%%boxclans_name%]` cho ra `[test]` khi không có icon và `[🛡 test]` khi có.
-Icon động cần TAB / UnlimitedNameTag làm mới placeholder theo `frame-interval-ms` (xem `display-configs/`).
+Icon động cần TAB / UnlimitedNameTag làm mới placeholder theo `frame-interval-ms`.
 
 ## Icon khiên động (Shop Clan)
 
-Spec: `BOXCLANS_ICON_SPEC.md`.
 1. Chép thư mục `LEGACY-BOXPVP/shieldranks/` vào `plugins/ItemsAdder/contents/shieldranks/` rồi chạy `/iazip`.
    Pack do `tools/build_shieldranks.py` sinh ra từ pack "ANIMATED 9+ Shield rank icons": mỗi khung GIF là một font image.
 2. Cài BoxClans mới. Server có ItemsAdder thì BoxClans tự đọc ký tự icon, và đọc lại mỗi khi ItemsAdder load xong (`/iareload`).
 3. Minh Chủ mở `/clan shop` (hoặc `/clan` rồi bấm nút **Shop Clan**, ô `H`) và chọn icon. Thành viên khác chỉ xem được.
-4. Sửa TAB / UnlimitedNameTag / EzChat theo `display-configs/README.md`.
+4. Sửa TAB / UnlimitedNameTag / EzChat để hiện placeholder icon.
 
 Server đang dùng `menus/clan-detail.yml` cũ thì nút Shop chưa hiện: thêm `H` vào layout (`'LIHPAN.SF'`) và mục `items.H`
 (chép từ bản mới trong jar).
@@ -193,3 +192,14 @@ Chạy với ít nhất 3 tài khoản (A, B, C), một tài khoản staff, và 
 - [ ] Gỡ PlaceholderAPI / BoxCore: BoxClans vẫn bật, không lỗi trong log.
 - [ ] `boxcore-boost-type: 'clan'` + boost BoxCore đang chạy: nguồn có `boost: true` được nhân.
 - [ ] CrazyEnchantments và BoxKOTH: xem checklist trong spec của từng plugin.
+
+## Build
+
+```
+./gradlew build
+```
+
+Repo chỉ có mã nguồn, không chứa file jar nào (trừ `gradle/wrapper/gradle-wrapper.jar` chuẩn của Gradle).
+Trước khi build, tự đặt các jar sau vào thư mục `libs/` ở gốc repo:
+
+- `boxcore-api-1.3.0.jar` - build từ [BoxCore](https://github.com/FLD-TN/BoxCore) (`boxcore-api/build/libs/`)
